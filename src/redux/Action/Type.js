@@ -1,1 +1,3 @@
-export const GET_TOKEN_USER = 'GET_TOKEN_USER'
+export const SET_TOKEN_USER = 'SET_TOKEN_USER';
+export const IS_LOADING = 'IS_LOADING'
+export const STACK_IS_LOADING = 'STACK_IS_LOADING'

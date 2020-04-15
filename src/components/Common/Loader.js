@@ -1,0 +1,16 @@
+import React from 'react'
+import LottieView from 'lottie-react-native';
+
+
+export default function Loader(props) {
+    
+    return (
+        <LottieView
+            autoPlay={true}
+            source={require('../../assets/18289-stay-home-stay-safe-red.json')}
+            progress={0.5}
+            loop={true}
+            enableMergePathsAndroidForKitKatAndAbove
+        />
+    );
+}

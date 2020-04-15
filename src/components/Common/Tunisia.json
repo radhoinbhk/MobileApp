@@ -1,0 +1,1495 @@
+[
+    {
+        "code": "01",
+        "nameFR": "Ariana",
+        "nameAR": "أريانة",
+        "Delegation": [
+            {
+                "code": "011",
+                "nameFR": "Mnihla",
+                "nameAR": "المنيهلة"
+            },
+            {
+                "code": "012",
+                "nameFR": "Kalâat el-Andalous",
+                "nameAR": "قلعة الأندلس"
+            },
+            {
+                "code": "013",
+                "nameFR": "Sidi Thabet",
+                "nameAR": "سيدي ثابت"
+            },
+            {
+                "code": "014",
+                "nameFR": "La Soukra",
+                "nameAR": "سكرة"
+            },
+            {
+                "code": "015",
+                "nameFR": "Raoued",
+                "nameAR": "رواد"
+            },
+            {
+                "code": "016",
+                "nameFR": "Ettadhamen",
+                "nameAR": "حي التضامن"
+            },
+            {
+                "code": "017",
+                "nameFR": "Ariana Ville",
+                "nameAR": "أريانة"
+            }
+        ]
+    },
+    {
+        "code": "02",
+        "nameFR": "Béja",
+        "nameAR": "باجة",
+        "Delegation": [
+            {
+                "code": "021",
+                "nameFR": "Amdoun",
+                "nameAR": "عمدون"
+            },
+            {
+                "code": "022",
+                "nameFR": "Béja Nord",
+                "nameAR": "باجة الشمالية"
+            },
+            {
+                "code": "023",
+                "nameFR": "Béja Sud",
+                "nameAR": "باجة الجنوبية"
+            },
+            {
+                "code": "024",
+                "nameFR": "Goubellat",
+                "nameAR": "قبلاط"
+            },
+            {
+                "code": "025",
+                "nameFR": "Medjez el-Bab",
+                "nameAR": "مجاز الباب"
+            },
+            {
+                "code": "026",
+                "nameFR": "Nefza",
+                "nameAR": "نفزة"
+            },
+            {
+                "code": "027",
+                "nameFR": "Téboursouk",
+                "nameAR": "تبرسق"
+            },
+            {
+                "code": "028",
+                "nameFR": "Testour",
+                "nameAR": "تستور"
+            },
+            {
+                "code": "029",
+                "nameFR": "Thibar",
+                "nameAR": "تيبار"
+            }
+        ]
+    },
+    {
+        "code": "03",
+        "nameFR": "Bizerte",
+        "nameAR": "بنزرت",
+        "Delegation": [
+            {
+                "code": "031",
+                "nameFR": "Bizerte Nord",
+                "nameAR": "بنزرت الشمالية"
+            },
+            {
+                "code": "032",
+                "nameFR": "Bizerte Sud",
+                "nameAR": "بنزرت الجنوبية"
+            },
+            {
+                "code": "033",
+                "nameFR": "El Alia",
+                "nameAR": "العالية"
+            },
+            {
+                "code": "034",
+                "nameFR": "Ghar El Melh",
+                "nameAR": "غار الملح"
+            },
+            {
+                "code": "035",
+                "nameFR": "Ghezala",
+                "nameAR": "غزالة"
+            },
+            {
+                "code": "036",
+                "nameFR": "Joumine",
+                "nameAR": "جومين"
+            },
+            {
+                "code": "037",
+                "nameFR": "Mateur",
+                "nameAR": "ماطر"
+            },
+            {
+                "code": "038",
+                "nameFR": "Menzel Bourguiba",
+                "nameAR": "منزل بورقيبة"
+            },
+            {
+                "code": "039",
+                "nameFR": "Menzel Jemil",
+                "nameAR": "منزل جميل"
+            },
+            {
+                "code": "0310",
+                "nameFR": "Ras Jebel",
+                "nameAR": "رأس الجبل"
+            },
+            {
+                "code": "0311",
+                "nameFR": "Sejnane",
+                "nameAR": "سجنان"
+            },
+            {
+                "code": "0312",
+                "nameFR": "Tinja",
+                "nameAR": "تينجة"
+            },
+            {
+                "code": "0313",
+                "nameFR": "Utique",
+                "nameAR": "أوتيك"
+            },
+            {
+                "code": "0314",
+                "nameFR": "Zarzouna",
+                "nameAR": "جرزونة"
+            }
+        ]
+    },
+    {
+        "code": "04",
+        "nameFR": "Ben Arous",
+        "nameAR": "بن عروس",
+        "Delegation": [
+            {
+                "code": "041",
+                "nameFR": "Ben Arous",
+                "nameAR": "بن عروس"
+            },
+            {
+                "code": "042",
+                "nameFR": "Bou Mhel el-Bassatine",
+                "nameAR": "بومهل"
+            },
+            {
+                "code": "043",
+                "nameFR": "El Mourouj",
+                "nameAR": "المروج"
+            },
+            {
+                "code": "044",
+                "nameFR": "Ezzahra",
+                "nameAR": "الزهراء"
+            },
+            {
+                "code": "045",
+                "nameFR": "Fouchana",
+                "nameAR": "فوشانة"
+            },
+            {
+                "code": "046",
+                "nameFR": "Hammam Chott",
+                "nameAR": "حمام الشط"
+            },
+            {
+                "code": "047",
+                "nameFR": "Hammam Lif",
+                "nameAR": "حمام الأنف"
+            },
+            {
+                "code": "048",
+                "nameFR": "Mohamedia",
+                "nameAR": "المحمدية"
+            },
+            {
+                "code": "049",
+                "nameFR": "Medina Jedida",
+                "nameAR": "المدينة الجديدة"
+            },
+            {
+                "code": "0410",
+                "nameFR": "Mégrine",
+                "nameAR": "مقرين"
+            },
+            {
+                "code": "0411",
+                "nameFR": "Mornag",
+                "nameAR": "مرناق"
+            },
+            {
+                "code": "0412",
+                "nameFR": "Radès",
+                "nameAR": "رادس"
+            }
+        ]
+    },
+    {
+        "code": "05",
+        "nameFR": "Tataouine",
+        "nameAR": "تطاوين",
+        "Delegation": [
+            {
+                "code": "051",
+                "nameFR": "Bir Lahmar",
+                "nameAR": "بئر الأحمر"
+            },
+            {
+                "code": "052",
+                "nameFR": "Dehiba",
+                "nameAR": "الذهيبة"
+            },
+            {
+                "code": "053",
+                "nameFR": "Ghomrassen",
+                "nameAR": "غمراسن"
+            },
+            {
+                "code": "054",
+                "nameFR": "Remada",
+                "nameAR": "رمادة"
+            },
+            {
+                "code": "055",
+                "nameFR": "Smâr",
+                "nameAR": "الصمار"
+            },
+            {
+                "code": "056",
+                "nameFR": "Tataouine Nord",
+                "nameAR": "تطاوين الشمالية"
+            },
+            {
+                "code": "057",
+                "nameFR": "Tataouine Sud",
+                "nameAR": "تطاوين الجنوبية"
+            }
+        ]
+    },
+    {
+        "code": "06",
+        "nameFR": "Tozeur",
+        "nameAR": "توزر",
+        "Delegation": [
+            {
+                "code": "061",
+                "nameFR": "Degache",
+                "nameAR": "دقاش"
+            },
+            {
+                "code": "062",
+                "nameFR": "El Hamma du Jérid",
+                "nameAR": "حامة الجريد"
+            },
+            {
+                "code": "063",
+                "nameFR": "Hazoua",
+                "nameAR": "حزوة"
+            },
+            {
+                "code": "064",
+                "nameFR": "Nefta",
+                "nameAR": "نفطة"
+            },
+            {
+                "code": "065",
+                "nameFR": "Tameghza",
+                "nameAR": "تمغزة"
+            },
+            {
+                "code": "066",
+                "nameFR": "Tozeur",
+                "nameAR": "توزر"
+            }
+        ]
+    },
+    {
+        "code": "07",
+        "nameFR": "Tunis",
+        "nameAR": "تونس",
+        "Delegation": [
+            {
+                "code": "071",
+                "nameFR": "Bab El Bhar",
+                "nameAR": "باب البحر"
+            },
+            {
+                "code": "072",
+                "nameFR": "Bab Souika",
+                "nameAR": "باب سويقة"
+            },
+            {
+                "code": "073",
+                "nameFR": "Carthage",
+                "nameAR": "قرطاج"
+            },
+            {
+                "code": "074",
+                "nameFR": "Cité El Khadra",
+                "nameAR": "حي الخضراء"
+            },
+            {
+                "code": "075",
+                "nameFR": "Djebel Jelloud",
+                "nameAR": "جبل الجلود"
+            },
+            {
+                "code": "076",
+                "nameFR": "El Kabaria",
+                "nameAR": "الكبارية"
+            },
+            {
+                "code": "077",
+                "nameFR": "El Menzah",
+                "nameAR": "المنزه"
+            },
+            {
+                "code": "078",
+                "nameFR": "El Omrane",
+                "nameAR": "العمران"
+            },
+            {
+                "code": "079",
+                "nameFR": "El Omrane supérieur",
+                "nameAR": "العمران الأعلى"
+            },
+            {
+                "code": "0710",
+                "nameFR": "El Ouardia",
+                "nameAR": "الوردية"
+            },
+            {
+                "code": "0711",
+                "nameFR": "Ettahrir",
+                "nameAR": "التحرير"
+            },
+            {
+                "code": "0712",
+                "nameFR": "Ezzouhour",
+                "nameAR": "الزهور"
+            },
+            {
+                "code": "0713",
+                "nameFR": "Hraïria",
+                "nameAR": "الحرايرية"
+            },
+            {
+                "code": "0714",
+                "nameFR": "La Goulette",
+                "nameAR": "حلق الوادي"
+            },
+            {
+                "code": "0715",
+                "nameFR": "La Marsa",
+                "nameAR": "المرسى"
+            },
+            {
+                "code": "0716",
+                "nameFR": "Le Bardo",
+                "nameAR": "باردو"
+            },
+            {
+                "code": "0717",
+                "nameFR": "Le Kram",
+                "nameAR": "الكرم"
+            },
+            {
+                "code": "0718",
+                "nameFR": "Médina",
+                "nameAR": "المدينة"
+            },
+            {
+                "code": "0719",
+                "nameFR": "Séjoumi",
+                "nameAR": "السيجومي"
+            },
+            {
+                "code": "0720",
+                "nameFR": "Sidi El Béchir",
+                "nameAR": "سيدي البشير"
+            },
+            {
+                "code": "0721",
+                "nameFR": "Sidi Hassine",
+                "nameAR": "سيدي حسين"
+            }
+        ]
+    },
+    {
+        "code": "08",
+        "nameFR": "Jendouba",
+        "nameAR": "جندوبة",
+        "Delegation": [
+            {
+                "code": "081",
+                "nameFR": "Balta-Bou Aouane",
+                "nameAR": "بلطة بوعوان"
+            },
+            {
+                "code": "082",
+                "nameFR": "Bou Salem",
+                "nameAR": "بوسالم"
+            },
+            {
+                "code": "083",
+                "nameFR": "Jendouba Sud",
+                "nameAR": "جندوبة الجنوبية"
+            },
+            {
+                "code": "084",
+                "nameFR": "Jendouba Nord",
+                "nameAR": "جندوبة الشمالية"
+            },
+            {
+                "code": "085",
+                "nameFR": "Tabarka",
+                "nameAR": "طبرقة"
+            },
+            {
+                "code": "086",
+                "nameFR": "Aïn Draham",
+                "nameAR": "عين دراهم"
+            },
+            {
+                "code": "087",
+                "nameFR": "Ghardimaou",
+                "nameAR": "غار الدماء"
+            },
+            {
+                "code": "088",
+                "nameFR": "Fernana",
+                "nameAR": "فرنانة"
+            },
+            {
+                "code": "089",
+                "nameFR": "Oued Meliz",
+                "nameAR": "وادي مليز"
+            }
+        ]
+    },
+    {
+        "code": "09",
+        "nameFR": "Zaghouan",
+        "nameAR": "زغوان",
+        "Delegation": [
+            {
+                "code": "091",
+                "nameFR": "Bir Mcherga",
+                "nameAR": "بئر مشارقة"
+            },
+            {
+                "code": "092",
+                "nameFR": "El Fahs",
+                "nameAR": "الفحص"
+            },
+            {
+                "code": "093",
+                "nameFR": "Nadhour",
+                "nameAR": "الناظور"
+            },
+            {
+                "code": "094",
+                "nameFR": "Saouaf",
+                "nameAR": "صواف"
+            },
+            {
+                "code": "095",
+                "nameFR": "Zaghouan",
+                "nameAR": "زغوان"
+            },
+            {
+                "code": "096",
+                "nameFR": "Zriba",
+                "nameAR": "الزريبة"
+            }
+        ]
+    },
+    {
+        "code": "10",
+        "nameFR": "Siliana",
+        "nameAR": "سليانة",
+        "Delegation": [
+            {
+                "code": "10",
+                "nameFR": "Bargou",
+                "nameAR": "برقو"
+            },
+            {
+                "code": "10",
+                "nameFR": "Bou Arada",
+                "nameAR": "بوعرادة"
+            },
+            {
+                "code": "10",
+                "nameFR": "El Aroussa",
+                "nameAR": "العروسة"
+            },
+            {
+                "code": "10",
+                "nameFR": "El Krib",
+                "nameAR": "الكريب"
+            },
+            {
+                "code": "10",
+                "nameFR": "Gaâfour",
+                "nameAR": "ڨعفور"
+            },
+            {
+                "code": "10",
+                "nameFR": "Kesra",
+                "nameAR": "كسرى"
+            },
+            {
+                "code": "10",
+                "nameFR": "Makthar",
+                "nameAR": "مكثر"
+            },
+            {
+                "code": "10",
+                "nameFR": "Rouhia",
+                "nameAR": "الروحية"
+            },
+            {
+                "code": "10",
+                "nameFR": "Sidi Bou Rouis",
+                "nameAR": "سيدي بورويس"
+            },
+            {
+                "code": "10",
+                "nameFR": "Siliana Nord",
+                "nameAR": "سليانة الشمالية"
+            },
+            {
+                "code": "10",
+                "nameFR": "Siliana Sud",
+                "nameAR": "سليانة الجنوبية"
+            }
+        ]
+    },
+    {
+        "code": "11",
+        "nameFR": "Sousse",
+        "nameAR": "سوسة",
+        "Delegation": [
+            {
+                "code": "111",
+                "nameFR": "Akouda",
+                "nameAR": "أكودة"
+            },
+            {
+                "code": "112",
+                "nameFR": "Bouficha",
+                "nameAR": "بوفيشة"
+            },
+            {
+                "code": "113",
+                "nameFR": "Hammam Sousse",
+                "nameAR": "حمام سوسة"
+            },
+            {
+                "code": "114",
+                "nameFR": "Zaouia-Ksiba-Thrayet",
+                "nameAR": "الزاوية القصيبة الثريات"
+            },
+            {
+                "code": "115",
+                "nameFR": "Sousse Jawhara",
+                "nameAR": "سوسة جوهرة"
+            },
+            {
+                "code": "116",
+                "nameFR": "Sousse Riadh",
+                "nameAR": "سوسة الرياض"
+            },
+            {
+                "code": "117",
+                "nameFR": "Sousse Sidi Abdelhamid",
+                "nameAR": "سوسة سيدي عبد الحميد"
+            },
+            {
+                "code": "118",
+                "nameFR": "Sousse Médina",
+                "nameAR": "سوسة المدينة"
+            },
+            {
+                "code": "119",
+                "nameFR": "Sidi Bou Ali",
+                "nameAR": "سيدي بوعلي"
+            },
+            {
+                "code": "1110",
+                "nameFR": "Sidi El Hani",
+                "nameAR": "سيدي الهاني"
+            },
+            {
+                "code": "1111",
+                "nameFR": "Kalâa Seghira",
+                "nameAR": "القلعة الصغرى"
+            },
+            {
+                "code": "1112",
+                "nameFR": "Kalâa Kebira",
+                "nameAR": "القلعة الكبرى"
+            },
+            {
+                "code": "1113",
+                "nameFR": "Kondar",
+                "nameAR": "كندار"
+            },
+            {
+                "code": "1114",
+                "nameFR": "M'saken",
+                "nameAR": "مساكن"
+            },
+            {
+                "code": "1115",
+                "nameFR": "Enfida",
+                "nameAR": "النفيضة"
+            },
+            {
+                "code": "1116",
+                "nameFR": "Hergla",
+                "nameAR": "هرقلة"
+            }
+        ]
+    },
+    {
+        "code": "12",
+        "nameFR": "Sidi Bouzid",
+        "nameAR": "سيدي بوزيد",
+        "Delegation": [
+            {
+                "code": "121",
+                "nameFR": "Bir El Hafey",
+                "nameAR": "بئر الحفي"
+            },
+            {
+                "code": "122",
+                "nameFR": "Cebbala",
+                "nameAR": "السبالة"
+            },
+            {
+                "code": "123",
+                "nameFR": "Jilma",
+                "nameAR": "جلمة"
+            },
+            {
+                "code": "124",
+                "nameFR": "Meknassy",
+                "nameAR": "المكناسي"
+            },
+            {
+                "code": "125",
+                "nameFR": "Menzel Bouzaiane",
+                "nameAR": "بوزيان"
+            },
+            {
+                "code": "126",
+                "nameFR": "Mezzouna",
+                "nameAR": "المزونة"
+            },
+            {
+                "code": "127",
+                "nameFR": "Ouled Haffouz",
+                "nameAR": "أولاد حفوز"
+            },
+            {
+                "code": "128",
+                "nameFR": "Regueb",
+                "nameAR": "الرقاب"
+            },
+            {
+                "code": "129",
+                "nameFR": "Sidi Ali Ben Aoun",
+                "nameAR": "سيدي علي بن عون"
+            },
+            {
+                "code": "1210",
+                "nameFR": "Sidi Bouzid Est",
+                "nameAR": "سيدي بوزيد الشرقية"
+            },
+            {
+                "code": "1211",
+                "nameFR": "Sidi Bouzid Ouest",
+                "nameAR": "سيدي بوزيد الغربية"
+            },
+            {
+                "code": "1212",
+                "nameFR": "Souk Jedid",
+                "nameAR": "السوق الجديد"
+            }
+        ]
+    },
+    {
+        "code": "13",
+        "nameFR": "Sfax",
+        "nameAR": "صفاقس",
+        "Delegation": [
+            {
+                "code": "131",
+                "nameFR": "Bir Ali Ben Khalifa",
+                "nameAR": "بئر علي بن خليفة"
+            },
+            {
+                "code": "132",
+                "nameFR": "Jebiniana",
+                "nameAR": "جبنيانة"
+            },
+            {
+                "code": "133",
+                "nameFR": "El Hencha",
+                "nameAR": "الحنشة"
+            },
+            {
+                "code": "134",
+                "nameFR": "Graïba",
+                "nameAR": "الغريبة"
+            },
+            {
+                "code": "135",
+                "nameFR": "Sakiet Eddaïer",
+                "nameAR": "ساقية الدائر"
+            },
+            {
+                "code": "136",
+                "nameFR": "Sakiet Ezzit",
+                "nameAR": "ساقية الزيت"
+            },
+            {
+                "code": "137",
+                "nameFR": "Skhira",
+                "nameAR": "الصخيرة"
+            },
+            {
+                "code": "138",
+                "nameFR": "Sfax Sud",
+                "nameAR": "صفاقس الجنوبية"
+            },
+            {
+                "code": "139",
+                "nameFR": "Sfax Ouest",
+                "nameAR": "صفاقس الغربية"
+            },
+            {
+                "code": "1310",
+                "nameFR": "Sfax Ville",
+                "nameAR": "صفاقس المدينة"
+            },
+            {
+                "code": "1311",
+                "nameFR": "Thyna",
+                "nameAR": "طينة"
+            },
+            {
+                "code": "1312",
+                "nameFR": "El Amra",
+                "nameAR": "العامرة"
+            },
+            {
+                "code": "1313",
+                "nameFR": "Agareb",
+                "nameAR": "عقارب"
+            },
+            {
+                "code": "1314",
+                "nameFR": "Kerkennah",
+                "nameAR": "قرقنة"
+            },
+            {
+                "code": "1315",
+                "nameFR": "Mahrès",
+                "nameAR": "المحرس"
+            },
+            {
+                "code": "1316",
+                "nameFR": "Menzel Chaker",
+                "nameAR": "منزل شاكر"
+            }
+        ]
+    },
+    {
+        "code": "14",
+        "nameFR": "Gabès",
+        "nameAR": "قابس",
+        "Delegation": [
+            {
+                "code": "141",
+                "nameFR": "El Hamma",
+                "nameAR": "الحامة"
+            },
+            {
+                "code": "142",
+                "nameFR": "Ghannouch",
+                "nameAR": "غنوش"
+            },
+            {
+                "code": "143",
+                "nameFR": "Gabès Sud",
+                "nameAR": "قابس الجنوبية"
+            },
+            {
+                "code": "144",
+                "nameFR": "Gabès Ouest",
+                "nameAR": "قابس الغربية"
+            },
+            {
+                "code": "145",
+                "nameFR": "Gabès Médina",
+                "nameAR": "قابس المدينة"
+            },
+            {
+                "code": "146",
+                "nameFR": "Mareth",
+                "nameAR": "مارث"
+            },
+            {
+                "code": "147",
+                "nameFR": "Nouvelle Matmata",
+                "nameAR": "مطماطة الجديدة"
+            },
+            {
+                "code": "148",
+                "nameFR": "Matmata",
+                "nameAR": "مطماطة القديمة"
+            },
+            {
+                "code": "149",
+                "nameFR": "Métouia",
+                "nameAR": "المطوية"
+            },
+            {
+                "code": "1410",
+                "nameFR": "Menzel El Habib",
+                "nameAR": "منزل الحبيب"
+            }
+        ]
+    },
+    {
+        "code": "15",
+        "nameFR": "Kébili",
+        "nameAR": "قبلي",
+        "Delegation": [
+            {
+                "code": "151",
+                "nameFR": "Souk Lahad",
+                "nameAR": "سوق الأحد"
+            },
+            {
+                "code": "152",
+                "nameFR": "Douz Nord",
+                "nameAR": "دوز الشمالية"
+            },
+            {
+                "code": "153",
+                "nameFR": "Douz Sud",
+                "nameAR": "دوز الجنوبية"
+            },
+            {
+                "code": "154",
+                "nameFR": "Faouar",
+                "nameAR": "الفوار (قرية)"
+            },
+            {
+                "code": "155",
+                "nameFR": "Kébili Nord",
+                "nameAR": "قبلي الشمالية"
+            },
+            {
+                "code": "156",
+                "nameFR": "Kébili Sud",
+                "nameAR": "قبلي الجنوبية"
+            }
+        ]
+    },
+    {
+        "code": "16",
+        "nameFR": "Kasserine",
+        "nameAR": "القصرين",
+        "Delegation": [
+            {
+                "code": "161",
+                "nameFR": "Thala",
+                "nameAR": "تالة"
+            },
+            {
+                "code": "162",
+                "nameFR": "Hassi El Ferid",
+                "nameAR": "حاسي الفريد"
+            },
+            {
+                "code": "163",
+                "nameFR": "Haïdra",
+                "nameAR": "حيدرة"
+            },
+            {
+                "code": "164",
+                "nameFR": "Jedelienne",
+                "nameAR": "جدليان"
+            },
+            {
+                "code": "165",
+                "nameFR": "Ezzouhour",
+                "nameAR": "الزهور"
+            },
+            {
+                "code": "166",
+                "nameFR": "Sbiba",
+                "nameAR": "سبيبة"
+            },
+            {
+                "code": "167",
+                "nameFR": "Sbeïtla",
+                "nameAR": "سبيطلة"
+            },
+            {
+                "code": "168",
+                "nameFR": "El Ayoun",
+                "nameAR": "العيون"
+            },
+            {
+                "code": "169",
+                "nameFR": "Fériana",
+                "nameAR": "فريانة"
+            },
+            {
+                "code": "1610",
+                "nameFR": "Foussana",
+                "nameAR": "فوسانة"
+            },
+            {
+                "code": "1611",
+                "nameFR": "Kasserine Sud",
+                "nameAR": "القصرين الجنوبية"
+            },
+            {
+                "code": "1612",
+                "nameFR": "Kasserine Nord",
+                "nameAR": "القصرين الشمالية"
+            },
+            {
+                "code": "1613",
+                "nameFR": "Majel Bel Abbès",
+                "nameAR": "ماجل بلعباس"
+            }
+        ]
+    },
+    {
+        "code": "17",
+        "nameFR": "Gafsa",
+        "nameAR": "قفصة",
+        "Delegation": [
+            {
+                "code": "171",
+                "nameFR": "Belkhir",
+                "nameAR": "بالخير"
+            },
+            {
+                "code": "172",
+                "nameFR": "El Guettar",
+                "nameAR": "القطار"
+            },
+            {
+                "code": "173",
+                "nameFR": "El Ksar",
+                "nameAR": "القصر"
+            },
+            {
+                "code": "174",
+                "nameFR": "Gafsa Nord",
+                "nameAR": "قفصة الشمالية"
+            },
+            {
+                "code": "175",
+                "nameFR": "Gafsa Sud",
+                "nameAR": "قفصة الجنوبية"
+            },
+            {
+                "code": "176",
+                "nameFR": "Mdhilla",
+                "nameAR": "المظيلة"
+            },
+            {
+                "code": "177",
+                "nameFR": "Métlaoui",
+                "nameAR": "المتلوي"
+            },
+            {
+                "code": "178",
+                "nameFR": "Moularès",
+                "nameAR": "أم العرائس"
+            },
+            {
+                "code": "179",
+                "nameFR": "Redeyef",
+                "nameAR": "الرديف"
+            },
+            {
+                "code": "1710",
+                "nameFR": "Sened",
+                "nameAR": "السند"
+            },
+            {
+                "code": "1711",
+                "nameFR": "Sidi Aïch",
+                "nameAR": "سيدي عيش"
+            }
+        ]
+    },
+    {
+        "code": "18",
+        "nameFR": "Kairouan",
+        "nameAR": "القيروان",
+        "Delegation": [
+            {
+                "code": "181",
+                "nameFR": "Bou Hajla",
+                "nameAR": "بوحجلة"
+            },
+            {
+                "code": "182",
+                "nameFR": "Chebika",
+                "nameAR": "الشبيكة"
+            },
+            {
+                "code": "183",
+                "nameFR": "Echrarda",
+                "nameAR": "الشراردة"
+            },
+            {
+                "code": "184",
+                "nameFR": "El Alâa",
+                "nameAR": "العلا"
+            },
+            {
+                "code": "185",
+                "nameFR": "Haffouz",
+                "nameAR": "حفوز"
+            },
+            {
+                "code": "186",
+                "nameFR": "Hajeb El Ayoun",
+                "nameAR": "حاجب العيون"
+            },
+            {
+                "code": "187",
+                "nameFR": "Kairouan Nord",
+                "nameAR": "القيروان الشمالية"
+            },
+            {
+                "code": "188",
+                "nameFR": "Kairouan Sud",
+                "nameAR": "القيروان الجنوبية"
+            },
+            {
+                "code": "189",
+                "nameFR": "Nasrallah",
+                "nameAR": "نصر الله"
+            },
+            {
+                "code": "1810",
+                "nameFR": "Oueslatia",
+                "nameAR": "الوسلاتية"
+            },
+            {
+                "code": "1811",
+                "nameFR": "Sbikha",
+                "nameAR": "السبيخة"
+            }
+        ]
+    },
+    {
+        "code": "19",
+        "nameFR": "Le Kef",
+        "nameAR": "الكاف",
+        "Delegation": [
+            {
+                "code": "191",
+                "nameFR": "Dahmani",
+                "nameAR": "الدهماني"
+            },
+            {
+                "code": "192",
+                "nameFR": "Jérissa",
+                "nameAR": "الجريصة"
+            },
+            {
+                "code": "193",
+                "nameFR": "El Ksour",
+                "nameAR": "القصور"
+            },
+            {
+                "code": "194",
+                "nameFR": "Sers",
+                "nameAR": "السرس"
+            },
+            {
+                "code": "195",
+                "nameFR": "Kalâat Khasba",
+                "nameAR": "القلعة الخصبة"
+            },
+            {
+                "code": "196",
+                "nameFR": "Kalaat Senan",
+                "nameAR": "قلعة سنان"
+            },
+            {
+                "code": "197",
+                "nameFR": "Kef Est",
+                "nameAR": "الكاف الشرقية"
+            },
+            {
+                "code": "198",
+                "nameFR": "Kef Ouest",
+                "nameAR": "الكاف الغربية"
+            },
+            {
+                "code": "199",
+                "nameFR": "Nebeur",
+                "nameAR": "نبر"
+            },
+            {
+                "code": "1910",
+                "nameFR": "Sakiet Sidi Youssef",
+                "nameAR": "ساقية سيدي يوسف"
+            },
+            {
+                "code": "1911",
+                "nameFR": "Tajerouine",
+                "nameAR": "تاجروين"
+            }
+        ]
+    },
+    {
+        "code": "20",
+        "nameFR": "Médenine",
+        "nameAR": "مدنين",
+        "Delegation": [
+            {
+                "code": "201",
+                "nameFR": "Ben Gardane",
+                "nameAR": "بنقردان"
+            },
+            {
+                "code": "202",
+                "nameFR": "Beni Khedache",
+                "nameAR": "بني خداش"
+            },
+            {
+                "code": "203",
+                "nameFR": "Djerba - Ajim",
+                "nameAR": "جربة أجيم"
+            },
+            {
+                "code": "204",
+                "nameFR": "Djerba - Houmt Souk",
+                "nameAR": "جربة حومة السوق"
+            },
+            {
+                "code": "205",
+                "nameFR": "Djerba - Midoun",
+                "nameAR": "جربة ميدون"
+            },
+            {
+                "code": "206",
+                "nameFR": "Médenine Nord",
+                "nameAR": "مدنين الشمالية"
+            },
+            {
+                "code": "207",
+                "nameFR": "Médenine Sud",
+                "nameAR": "مدنين الجنوبية"
+            },
+            {
+                "code": "208",
+                "nameFR": "Sidi Makhlouf",
+                "nameAR": "سيدي مخلوف"
+            },
+            {
+                "code": "209",
+                "nameFR": "Zarzis",
+                "nameAR": "جرجيس"
+            }
+        ]
+    },
+    {
+        "code": "21",
+        "nameFR": "Monastir",
+        "nameAR": "المنستير",
+        "Delegation": [
+            {
+                "code": "211",
+                "nameFR": "Bekalta",
+                "nameAR": "البقالطة"
+            },
+            {
+                "code": "212",
+                "nameFR": "",
+                "nameAR": "بنبلة"
+            },
+            {
+                "code": "213",
+                "nameFR": "Beni Hassen",
+                "nameAR": "بني حسان"
+            },
+            {
+                "code": "214",
+                "nameFR": "Jemmal",
+                "nameAR": "جمال"
+            },
+            {
+                "code": "215",
+                "nameFR": "Ksar Hellal",
+                "nameAR": "قصر هلال"
+            },
+            {
+                "code": "216",
+                "nameFR": "Ksibet el-Médiouni",
+                "nameAR": "قصيبة المديوني"
+            },
+            {
+                "code": "217",
+                "nameFR": "Moknine",
+                "nameAR": "المكنين"
+            },
+            {
+                "code": "218",
+                "nameFR": "Monastir",
+                "nameAR": "المنستير"
+            },
+            {
+                "code": "219",
+                "nameFR": "Ouerdanine",
+                "nameAR": "الوردانين"
+            },
+            {
+                "code": "2110",
+                "nameFR": "Sahline",
+                "nameAR": "الساحلين"
+            },
+            {
+                "code": "2111",
+                "nameFR": "Sayada-Lamta-Bou Hajar",
+                "nameAR": "صيادة لمطة بوحجر"
+            },
+            {
+                "code": "2112",
+                "nameFR": "Téboulba",
+                "nameAR": "طبلبة"
+            },
+            {
+                "code": "2113",
+                "nameFR": "Zéramdine",
+                "nameAR": "زرمدين"
+            }
+        ]
+    },
+    {
+        "code": "22",
+        "nameFR": "La Manouba",
+        "nameAR": "منوبة",
+        "Delegation": [
+            {
+                "code": "221",
+                "nameFR": "Borj El Amri",
+                "nameAR": "برج العامري"
+            },
+            {
+                "code": "222",
+                "nameFR": "Djedeida",
+                "nameAR": "الجديدة"
+            },
+            {
+                "code": "223",
+                "nameFR": "Douar Hicher",
+                "nameAR": "دوار هيشر"
+            },
+            {
+                "code": "224",
+                "nameFR": "El Batan",
+                "nameAR": "البطان"
+            },
+            {
+                "code": "225",
+                "nameFR": "La Manouba",
+                "nameAR": "منوبة"
+            },
+            {
+                "code": "226",
+                "nameFR": "Mornaguia",
+                "nameAR": "المرناقية"
+            },
+            {
+                "code": "227",
+                "nameFR": "Oued Ellil",
+                "nameAR": "وادي الليل"
+            },
+            {
+                "code": "228",
+                "nameFR": "Tebourba",
+                "nameAR": "طبربة"
+            }
+        ]
+    },
+    {
+        "code": "23",
+        "nameFR": "Mahdia",
+        "nameAR": "المهدية",
+        "Delegation": [
+            {
+                "code": "23",
+                "nameFR": "Ouled Chamekh",
+                "nameAR": "أولاد الشامخ"
+            },
+            {
+                "code": "23",
+                "nameFR": "Bou Merdes",
+                "nameAR": "بومرداس"
+            },
+            {
+                "code": "23",
+                "nameFR": "El Jem",
+                "nameAR": "الجم"
+            },
+            {
+                "code": "23",
+                "nameFR": "Essouassi",
+                "nameAR": "السواسي"
+            },
+            {
+                "code": "23",
+                "nameFR": "Sidi Alouane",
+                "nameAR": "سيدي علوان"
+            },
+            {
+                "code": "23",
+                "nameFR": "Chebba",
+                "nameAR": "الشابة"
+            },
+            {
+                "code": "23",
+                "nameFR": "Chorbane",
+                "nameAR": "شربان"
+            },
+            {
+                "code": "23",
+                "nameFR": "Ksour Essef",
+                "nameAR": "قصور الساف"
+            },
+            {
+                "code": "23",
+                "nameFR": "Melloulèche",
+                "nameAR": "ملولش"
+            },
+            {
+                "code": "23",
+                "nameFR": "Mahdia",
+                "nameAR": "المهدية"
+            },
+            {
+                "code": "23",
+                "nameFR": "Hebira",
+                "nameAR": "هبيرة"
+            }
+        ]
+    },
+    {
+        "code": "24",
+        "nameFR": "Nabeul",
+        "nameAR": "نابل",
+        "Delegation": [
+            {
+                "code": "241",
+                "nameFR": "Béni Khalled",
+                "nameAR": "بني خلاد"
+            },
+            {
+                "code": "242",
+                "nameFR": "Béni Khiar",
+                "nameAR": "بني خيار"
+            },
+            {
+                "code": "243",
+                "nameFR": "Bou Argoub",
+                "nameAR": "بوعرقوب"
+            },
+            {
+                "code": "244",
+                "nameFR": "Dar Chaâbane El Fehri",
+                "nameAR": "دار شعبان الفهري"
+            },
+            {
+                "code": "245",
+                "nameFR": "El Haouaria",
+                "nameAR": "الهوارية"
+            },
+            {
+                "code": "246",
+                "nameFR": "El Mida",
+                "nameAR": "الميدة"
+            },
+            {
+                "code": "247",
+                "nameFR": "Grombalia",
+                "nameAR": "قرمبالية"
+            },
+            {
+                "code": "248",
+                "nameFR": "Hammam Ghezèze",
+                "nameAR": "حمام الأغزاز"
+            },
+            {
+                "code": "249",
+                "nameFR": "Hammamet",
+                "nameAR": "الحمامات"
+            },
+            {
+                "code": "2410",
+                "nameFR": "Kélibia",
+                "nameAR": "قليبية"
+            },
+            {
+                "code": "2411",
+                "nameFR": "Korba",
+                "nameAR": "قربة"
+            },
+            {
+                "code": "2412",
+                "nameFR": "Menzel Bouzelfa",
+                "nameAR": "منزل بوزلفة"
+            },
+            {
+                "code": "2413",
+                "nameFR": "Menzel Temime",
+                "nameAR": "منزل تميم"
+            },
+            {
+                "code": "2414",
+                "nameFR": "Nabeul",
+                "nameAR": "نابل"
+            },
+            {
+                "code": "2415",
+                "nameFR": "Soliman",
+                "nameAR": "سليمان"
+            },
+            {
+                "code": "2416",
+                "nameFR": "Takelsa",
+                "nameAR": "تاكلسة"
+            }
+        ]
+    }
+]
