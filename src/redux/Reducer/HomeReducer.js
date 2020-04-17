@@ -1,11 +1,14 @@
-import { SET_TOKEN_USER, IS_LOADING, STACK_IS_LOADING } from '../Action/Type';
+import { SET_TOKEN_USER, IS_LOADING, STACK_IS_LOADING, SIGNIN_IS_ERROR, SIGNUP_IS_ERROR, SIGNUP_IS_SUCCESS } from '../Action/Type';
 
 const initialState = {
     isSignedIn: false,
     userData: {},
     userToken: "",
     isLoading: false,
-    stackIsLoading: false
+    stackIsLoading: false,
+    signinIsError: false,
+    signupIsError: false,
+    signupIsSuccess: false
 }
 export default (state = initialState, action) => {
     const { type, payload } = action;
@@ -27,6 +30,21 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 stackIsLoading: action.stackIsLoading
+            };
+        case SIGNIN_IS_ERROR:
+            return {
+                ...state,
+                signinIsError: action.signinIsError
+            };
+        case SIGNUP_IS_ERROR:
+            return {
+                ...state,
+                signupIsError: action.signupIsError
+            };
+        case SIGNUP_IS_SUCCESS:
+            return {
+                ...state,
+                signupIsSuccess: action.signupIsSuccess
             };
         default:
             return state

@@ -5,7 +5,8 @@ import AsyncStorage from '@react-native-community/async-storage';
 import Home from '../components/Home/Index';
 import Login from '../components/Authentification/Login';
 import Logout from '../components/Authentification/Logout';
-import Signup from '../components/Authentification/Signup';
+import SignupForm from '../components/Authentification/Signup/SignupForm';
+import Signup from '../components/Authentification/Signup/Index';
 import { SetUserData, StackIsLoading } from '../redux/Action/HomeAction';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem, } from '@react-navigation/drawer';
 import Loader from '../components/Common/Loader';
@@ -70,6 +71,7 @@ function MainNavigator(props) {
                             <Stack.Screen name="Home" component={Home} />
                             <Stack.Screen name="Login" component={Login} />
                             <Stack.Screen name="Signup" component={Signup} />
+                            <Stack.Screen name="SignupForm" component={SignupForm} />
                         </Stack.Navigator >
 
                     </>
