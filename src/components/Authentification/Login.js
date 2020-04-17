@@ -5,6 +5,7 @@ import TextInputMask from "react-native-text-input-mask";
 import { useDispatch, useSelector } from "react-redux";
 import { Signin } from '../../redux/Action/HomeAction'
 import Loader from "../Common/Loader";
+import { ShowSnackbarSuccess, ShowSnackbarError } from '../Common/Snackbar'
 
 function Login(props) {
     const [cin, setCin] = useState()
@@ -12,6 +13,8 @@ function Login(props) {
     const dispatch = useDispatch()
     const isLoading = useSelector((state) => state.HomeReducer.isLoading)
     const isSignedIn = useSelector((state) => state.HomeReducer.isSignedIn)
+    const signinIsError = useSelector((state) => state.HomeReducer.signinIsError)
+    const signupIsSuccess = useSelector((state) => state.HomeReducer.signupIsSuccess)
 
     const authentification = () => {
         dispatch(Signin(cin, password))
@@ -19,7 +22,6 @@ function Login(props) {
 
     useEffect(() => {
         if (isSignedIn) {
-            console.warn("isSignedIn",isSignedIn);
             props.navigation.push('Home')
         }
     }, [isSignedIn])
@@ -70,15 +72,17 @@ function Login(props) {
                         </View>
                         <Button style={{ width: 250 }} icon="login" mode="contained" onPress={() => authentification()}>
                             S'identifier
-                </Button>
+                        </Button>
                     </View>
                     <View style={{ alignItems: "center" }}>
                         <Button style={{ width: 250 }} icon="account-plus" mode="outlined" onPress={() => props.navigation.navigate("Signup")}>
                             S'inscrire
-                </Button>
+                        </Button>
                     </View>
                 </View>
             }
+            {signupIsSuccess && <ShowSnackbarSuccess message={"le compte a été crée avec succès"} />}
+            {signinIsError && <ShowSnackbarError message={"CIN ou mot de passe incorrect"} />}
         </ScrollView>
     );
 }
