@@ -33,8 +33,6 @@ export function SigninIsError(bool) {
 }
 
 export function SignupIsSuccess(bool) {
-    console.warn("SignupIsSuccess",bool);
-    
     return {
         type: SIGNUP_IS_SUCCESS,
         signupIsSuccess: bool
@@ -87,8 +85,6 @@ export function Signin(CIN, password) {
 }
 
 export function Signup(body) {
-    console.warn("body", body);
-
     return (dispatch) => {
         dispatch(SignupIsSuccess(false))
         dispatch(SignupIsError(false))
@@ -99,7 +95,6 @@ export function Signup(body) {
         Axios.post("http://192.168.1.20:3000/user/signup", body)
             .then(function (response) {
                 // handle success
-                console.warn("response", response);
                 dispatch(SignupIsSuccess(true))
                 dispatch(IsLoading(false))
             })
