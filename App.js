@@ -14,7 +14,7 @@ import store from './src/redux/Store'
 
 const App: () => React$Node = () => {
 
-  
+
   return (
     <>
       <Provider store={store}>

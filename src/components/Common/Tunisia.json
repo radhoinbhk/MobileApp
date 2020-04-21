@@ -177,8 +177,8 @@
         "Delegation": [
             {
                 "code": "041",
-                "nameFR": "Ben Arous",
-                "nameAR": "بن عروس"
+                "nameFR": "Ben Arous ville",
+                "nameAR": "بن عروس المدينة"
             },
             {
                 "code": "042",
@@ -311,8 +311,8 @@
             },
             {
                 "code": "066",
-                "nameFR": "Tozeur",
-                "nameAR": "توزر"
+                "nameFR": "Tozeur ville",
+                "nameAR": "توزر المدينة"
             }
         ]
     },
@@ -507,8 +507,8 @@
             },
             {
                 "code": "095",
-                "nameFR": "Zaghouan",
-                "nameAR": "زغوان"
+                "nameFR": "Zaghouan ville",
+                "nameAR": "زغوان المدينة"
             },
             {
                 "code": "096",
@@ -1266,8 +1266,8 @@
             },
             {
                 "code": "218",
-                "nameFR": "Monastir",
-                "nameAR": "المنستير"
+                "nameFR": "Monastir ville",
+                "nameAR": "المنستير المدينة"
             },
             {
                 "code": "219",
@@ -1323,8 +1323,8 @@
             },
             {
                 "code": "225",
-                "nameFR": "La Manouba",
-                "nameAR": "منوبة"
+                "nameFR": "La Manouba ville",
+                "nameAR": "منوبة المدينة"
             },
             {
                 "code": "226",
@@ -1395,8 +1395,8 @@
             },
             {
                 "code": "23",
-                "nameFR": "Mahdia",
-                "nameAR": "المهدية"
+                "nameFR": "Mahdia ville",
+                "nameAR": "المهدية المدينة"
             },
             {
                 "code": "23",
@@ -1477,8 +1477,8 @@
             },
             {
                 "code": "2414",
-                "nameFR": "Nabeul",
-                "nameAR": "نابل"
+                "nameFR": "Nabeul ville",
+                "nameAR": "نابل المدينة"
             },
             {
                 "code": "2415",
