@@ -1,4 +1,4 @@
-import { SET_TOKEN_USER, IS_LOADING, STACK_IS_LOADING, SIGNIN_IS_ERROR, SIGNUP_IS_ERROR, SIGNUP_IS_SUCCESS } from '../Action/Type';
+import { SET_TOKEN_USER, IS_LOADING, STACK_IS_LOADING, SIGNIN_IS_ERROR, SIGNUP_IS_ERROR, SIGNUP_IS_SUCCESS, SAVE_CAS_CONFIRMES, SAVE_NOMBRE_DECES, SAVE_CAS_RETABLIS, STATIQUE_PAR_GOUVERNORAT, EVOLUTION_DES_CAS, PERSONNE_RETABLIES, PERSONNE_DECES } from '../Action/Type';
 
 const initialState = {
     isSignedIn: false,
@@ -8,7 +8,14 @@ const initialState = {
     stackIsLoading: false,
     signinIsError: false,
     signupIsError: false,
-    signupIsSuccess: false
+    signupIsSuccess: false,
+    saveCasConfirmes: 0,
+    saveCasRetablis: 0,
+    saveNombreDeces: 0,
+    statistiqueParGouvernorat: [],
+    evolutionDesCas: [],
+    personneRetablies: [],
+    personneDeces: []
 }
 export default (state = initialState, action) => {
     const { type, payload } = action;
@@ -45,6 +52,41 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 signupIsSuccess: action.signupIsSuccess
+            };
+        case SAVE_CAS_CONFIRMES:
+            return {
+                ...state,
+                saveCasConfirmes: action.saveCasConfirmes
+            };
+        case SAVE_NOMBRE_DECES:
+            return {
+                ...state,
+                saveNombreDeces: action.saveNombreDeces
+            };
+        case SAVE_CAS_RETABLIS:
+            return {
+                ...state,
+                saveCasRetablis: action.saveCasRetablis
+            };
+        case STATIQUE_PAR_GOUVERNORAT:
+            return {
+                ...state,
+                statistiqueParGouvernorat: action.statistiqueParGouvernorat
+            };
+        case EVOLUTION_DES_CAS:
+            return {
+                ...state,
+                evolutionDesCas: action.evolutionDesCas
+            };
+        case PERSONNE_RETABLIES:
+            return {
+                ...state,
+                personneRetablies: action.personneRetablies
+            };
+        case PERSONNE_DECES:
+            return {
+                ...state,
+                personneDeces: action.personneDeces
             };
         default:
             return state

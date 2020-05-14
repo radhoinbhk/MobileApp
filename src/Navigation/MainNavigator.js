@@ -11,6 +11,7 @@ import DrawerNavigator from './DrawerNavigator';
 import { SetUserData, StackIsLoading } from '../redux/Action/HomeAction';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem, } from '@react-navigation/drawer';
 import Loader from '../components/Common/Loader';
+import PersonneParticipant from '../components/HelpRequest/PersonnesPartcipant';
 import { Avatar, Subheading } from 'react-native-paper';
 import { View, Text } from 'react-native';
 const Stack = createStackNavigator();
@@ -50,6 +51,7 @@ function MainNavigator(props) {
                     < Stack.Navigator headerMode="none" >
                         <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} />
                         <Stack.Screen name="HelpRequestDetails" component={HelpRequestDetails} />
+                        <Stack.Screen name="PersonneParticipant" component={PersonneParticipant} />
                     </Stack.Navigator >
                 </>
             ) : (

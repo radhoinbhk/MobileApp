@@ -1,18 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
 import { View, ScrollView, Picker } from 'react-native';
-import { TextInput, Button, Appbar } from "react-native-paper";
+import { TextInput, Button, Appbar, Subheading, IconButton, Title } from "react-native-paper";
 import Tunisia from '../Common/Tunisia.json'
 import Header from "../Common/Header";
 import { useSelector, useDispatch } from "react-redux";
 import { AddDemande } from "../../redux/Action/HelpRequestAction";
 import { ShowSnackbarError, ShowSnackbarSuccess } from "../Common/Snackbar";
 import Loader from "../Common/Loader";
+import { set } from "react-native-reanimated";
 
 export default function AddHelpRequest(props) {
     const dispatch = useDispatch()
 
     const [titre, setTitre] = useState()
     const [objectif, setObjectif] = useState()
+    const [nbrMaxB, setNbrMaxB] = useState(0);
     const [gouvernoratValue, setGouvernoratValue] = useState();
     const [delegationValue, setDelegationValue] = useState();
     const [adresse, setAdresse] = useState()
@@ -31,6 +33,18 @@ export default function AddHelpRequest(props) {
             }
         })
     }, [gouvernoratValue])
+
+    useEffect(() => {
+        if (addDemandeIsSuccess) {
+            setTitre()
+            setObjectif()
+            setDescription()
+            setGouvernoratValue()
+            setDelegationValue()
+            setAdresse()
+            props.navigation.navigate("Liste des demandes d'aide")
+        }
+    }, [addDemandeIsSuccess])
 
     const Sinscrire = () => {
         const body = {
@@ -75,7 +89,27 @@ export default function AddHelpRequest(props) {
                         mode='outlined'
                         onChangeText={value => setDescription(value)}
                     />
-                    <View style={{ width: 300, marginBottom: 20, borderColor: "#7f7f7f", borderWidth: 1, borderRadius: 4 }}>
+                    <View style={{ width: 300, marginBottom: 30 }}>
+                        <Subheading style={{ color: "#7f7f7f" }}>Nombre de bénévole dont vous avez besoin :</Subheading>
+                        <View style={{ width: 130, flexDirection: "row", alignItems: "center", justifyContent: "space-between", borderColor: "#7f7f7f", borderWidth: 1, borderRadius: 4, marginTop: 10 }}>
+                            <IconButton
+                                icon="minus"
+                                size={25}
+                                color="#7f7f7f"
+                                onPress={() => nbrMaxB > 0 && setNbrMaxB(nbrMaxB - 1)}
+                            />
+                            <Title style={{ color: "#7f7f7f" }}>
+                                {nbrMaxB}
+                            </Title>
+                            <IconButton
+                                icon="plus"
+                                color="#7f7f7f"
+                                size={25}
+                                onPress={() => setNbrMaxB(nbrMaxB + 1)}
+                            />
+                        </View>
+                    </View>
+                    <View style={{ width: 300, marginBottom: 30, borderColor: "#7f7f7f", borderWidth: 1, borderRadius: 4 }}>
                         <Picker
                             mode='dialog'
                             selectedValue={gouvernoratValue}
@@ -88,7 +122,7 @@ export default function AddHelpRequest(props) {
                             )}
                         </Picker>
                     </View>
-                    <View style={{ width: 300, marginBottom: 20, borderColor: "#7f7f7f", borderWidth: 1, borderRadius: 4 }}>
+                    <View style={{ width: 300, marginBottom: 30, borderColor: "#7f7f7f", borderWidth: 1, borderRadius: 4 }}>
                         <Picker
                             mode='dialog'
                             selectedValue={delegationValue}
@@ -102,7 +136,7 @@ export default function AddHelpRequest(props) {
                         </Picker>
                     </View>
                     <TextInput
-                        style={{ width: 300, marginBottom: 30 }}
+                        style={{ width: 300, marginBottom: 50 }}
                         label='Adresse'
                         value={adresse}
                         mode='outlined'

@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 
 export default function Header(props) {
     const isSignedIn = useSelector((state) => state.HomeReducer.isSignedIn)
+    const helpRList = props.screenTitel == "Liste des demandes d'aide"
     return (
         <View style={{ width: "100%" }}>
             {!isSignedIn ?
@@ -20,18 +21,28 @@ export default function Header(props) {
                         <IconButton
                             icon="arrow-left"
                             size={30}
+                            style={{ marginLeft: 0 }}
                             onPress={() => props.navigation.goBack()}
                             color="#6200ee"
                         />
                         : <IconButton
                             icon="menu"
+                            style={{ marginLeft: 0 }}
                             size={30}
                             onPress={() => props.navigation.openDrawer()}
                             color="#6200ee"
                         />}
-                    <View style={{ width: "80%", alignItems: "center" }}>
+                    <View style={[{ width: "80%", alignItems: "center" }, helpRList && { width:"75%" }]}>
                         <Title style={{ color: "#6200ee" }}>{props.screenTitel}</Title>
+
                     </View>
+                    {helpRList &&
+                        <IconButton
+                            icon="filter-outline"
+                            size={30}
+                            onPress={() => props.onPressFilter()}
+                            color="#6200ee"
+                        />}
                 </Appbar>
             }
         </View>

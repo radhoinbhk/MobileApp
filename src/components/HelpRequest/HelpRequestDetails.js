@@ -1,29 +1,43 @@
 import React, { useEffect, useState } from "react";
 import { View, ScrollView, Text, RefreshControl, SafeAreaView, Keyboard } from 'react-native';
 import Header from "../Common/Header";
-import { Card, Avatar, IconButton, Subheading, Caption, Title, Headline, Divider, TextInput, Appbar } from "react-native-paper";
+import { Card, Avatar, IconButton, Subheading, Caption, Title, Headline, Divider, TextInput, Appbar, Button, TouchableRipple, Badge } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
-import { GetAllDemande, AddReponse, GetAllReponse } from "../../redux/Action/HelpRequestAction";
+import { AddReponse, GetAllReponse, AddUserJoin, UserJoinIsSuccess } from "../../redux/Action/HelpRequestAction";
 import Loader from "../Common/Loader";
 import Tunisia from '../Common/Tunisia.json'
 import moment from "moment";
+import UserDetails from "./UserDetails";
 
 export default function HelpRequestDetails(props) {
+    const demande = props.route.params.demande
+    const myHelpRequest = props.route.params.myHelpRequest
     const dispatch = useDispatch()
 
     const [reponse, setReponse] = useState("");
+    const [userDetailVisible, setUserDetailVisible] = useState(false);
+    const [userDetail, setUserDetail] = useState();
+    const [sumUserJoin, setSumUserJoin] = useState(demande.userJoin.length);
     const userData = useSelector((state) => state.HomeReducer.userData);
     const allReponse = useSelector((state) => state.HelpRequestReducer.allReponse);
     const isLoading = useSelector((state) => state.HelpRequestReducer.isLoading);
-
-    const demande = props.route.params.demande
+    const userJoinIsSuccess = useSelector((state) => state.HelpRequestReducer.userJoinIsSuccess);
+    const userIsJoin = demande.userJoin.find(idUser => idUser == userData._id)
 
     useEffect(() => {
         const body = {
             "filter": { "idDemande": demande._id }
         }
+        const userIsJoin = demande.userJoin.find(idUser => idUser == userData._id)
+        dispatch(UserJoinIsSuccess(userIsJoin != undefined))
         dispatch(GetAllReponse(body))
     }, [demande])
+
+    useEffect(() => {
+        if (userJoinIsSuccess && userIsJoin == undefined) {
+            setSumUserJoin(sumUserJoin + 1)
+        }
+    }, [userJoinIsSuccess])
 
     const getState = (code) => {
         return Tunisia[code.substring(0, 2) - 1].nameFR
@@ -38,13 +52,25 @@ export default function HelpRequestDetails(props) {
             "descriptionReponse": reponse,
             "dateReponse": moment().format(),
             "idDemande": demande._id,
-            "idUser": userData._id,
+            "idUser": userData,
         }
         dispatch(AddReponse(body))
         Keyboard.dismiss()
         setReponse("")
     }
 
+    const visibelDialog = (user) => {
+        setUserDetailVisible(true)
+        setUserDetail(user)
+    }
+
+    const OnPreesRejoindre = () => {
+        const body = {
+            "idDemande": demande._id,
+            "userJoin": userData._id
+        }
+        dispatch(AddUserJoin(body))
+    }
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <Header navigation={props.navigation} outSideDrawer={true} screenTitel="détail de la demande d'aide" />
@@ -58,6 +84,7 @@ export default function HelpRequestDetails(props) {
                     : <View style={{ flex: 1 }} >
                         <Card style={{ padding: 20, marginBottom: 10, marginLeft: 10, marginRight: 10 }}>
                             <View style={{ alignItems: "center", marginBottom: 20 }}>
+                                <Text style={{ position: "absolute", top: 0, left: "55%", zIndex: 1, backgroundColor: "#4A9A82", color: "#fff", paddingLeft: 6, paddingRight: 6, borderRadius: 50 }}>{sumUserJoin}</Text>
                                 <Avatar.Icon size={70} icon="bullhorn-outline" />
                                 <Title>{demande.Titre}</Title>
                                 <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -71,25 +98,48 @@ export default function HelpRequestDetails(props) {
                                 <Text>{demande.Objectif}</Text>
                             </View>
                             <Divider style={{ marginBottom: 20 }} />
-                            <View style={{ marginBottom: 20 }}>
+                            <View style={{ marginBottom: 30 }}>
                                 <Subheading>DESCRIPTION DE LA MISSION :</Subheading>
                                 <Text>{demande.Description}</Text>
                             </View>
+                            <Divider style={{ marginBottom: 20 }} />
+                            <View style={{ marginBottom: 20, flexDirection: "row" }}>
+                                <Subheading>NOMBRE MAXIMUM DE BÉNÉVOLE :</Subheading>
+                                <Text style={{ marginLeft: 15, backgroundColor: "#4A9A82", color: "#fff", width: 30, height: 30, lineHeight: 25, textAlign: "center", borderRadius: 50 }}>23</Text>
+                            </View>
+                            <Divider style={{ marginBottom: 20 }} />
+                            <View style={{ marginBottom: 40 }}>
+                                <Subheading>ÉTAT DE LA DEMANDE :</Subheading>
+                                {/* <Text style={{ marginTop: 20, borderColor: "#E75131", color: "#E75131", borderWidth: 1, textAlign: "center", padding: 5, width: 150, borderRadius: 20, marginLeft: "auto", marginRight: "auto" }}>FERMÉE</Text> */}
+                                {sumUserJoin == 0
+                                    ? <Text style={{ marginTop: 20, borderColor: "#FF6E09", color: "#FF6E09", borderWidth: 1, textAlign: "center", padding: 5, width: 150, borderRadius: 20, marginLeft: "auto", marginRight: "auto" }}>EN ATTENTE</Text>
+                                    : <Text style={{ marginTop: 20, borderColor: "#4A9A82", color: "#4A9A82", borderWidth: 1, textAlign: "center", padding: 5, width: 150, borderRadius: 20, marginLeft: "auto", marginRight: "auto" }}>EN COURS</Text>}
+                            </View>
+                            {!userJoinIsSuccess && !myHelpRequest && <View style={{ width: "100%", alignItems: "center" }}>
+                                <Button icon="account-multiple-plus" color="#4A9A82" style={{ width: 200 }} mode="contained" onPress={() => OnPreesRejoindre()}>
+                                    Rejoindre
+                                </Button>
+                            </View>}
+                            {myHelpRequest && <View style={{ alignItems: "center" }}>
+                                <Button icon="account-group" color="#4A9A82" mode="contained" onPress={() => props.navigation.navigate("PersonneParticipant")}>
+                                    Les personnes participantes
+                                </Button>
+                            </View>}
                         </Card>
                         {allReponse.map((reponse, index) =>
                             <Card key={index} style={{ marginLeft: 10, marginRight: 10, marginBottom: 10 }}>
                                 <View style={{ padding: 20 }}>
                                     <View style={{ flexDirection: "row", alignItems: "center" }}>
-                                        <Avatar.Text size={40} label={demande.Titre[0]} />
+                                        <Avatar.Text size={40} label={reponse.idUser.Nom[0]} />
                                         <View style={{ width: "70%", marginLeft: 20 }}>
-                                            <Subheading>User name</Subheading>
+                                            <Subheading>{reponse.idUser.Nom} {reponse.idUser.Prenom}</Subheading>
                                             <Caption>{reponse.descriptionReponse}</Caption>
                                         </View>
                                         <IconButton
                                             icon="account-badge-horizontal-outline"
                                             color="#6200ee"
                                             size={30}
-                                        // onPress={() => props.navigation.navigate("HelpRequestDetails", { "demande": demande })}
+                                            onPress={() => visibelDialog(reponse.idUser)}
                                         />
                                     </View>
                                 </View>
@@ -121,6 +171,7 @@ export default function HelpRequestDetails(props) {
                     onPress={() => saveReponse()}
                 />
             </Appbar>
-        </SafeAreaView>
+            <UserDetails userDetail={userDetail} userDetailVisible={userDetailVisible} hideDialog={() => setUserDetailVisible(false)} />
+        </SafeAreaView >
     );
 }
