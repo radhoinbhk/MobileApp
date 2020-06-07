@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { View, ScrollView, Text, RefreshControl, SafeAreaView } from 'react-native';
 import Header from "../Common/Header";
-import { Card, Avatar, IconButton, Subheading, Caption } from "react-native-paper";
+import { Card, Avatar, IconButton, Subheading, Caption, Button } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
-import { GetAllDemandeWithFilter } from "../../redux/Action/HelpRequestAction";
+import { GetAllUserJoin } from "../../redux/Action/HelpRequestAction";
 import Loader from "../Common/Loader";
 import Tunisia from '../Common/Tunisia.json'
 import FilterHelpRequest from "./FilterHelpRequest";
+import UserDetails from "./UserDetails";
 
-export default function HelpRequestList(props) {
+export default function PersonnesPartcipant(props) {
+    const idDemande = props.route.params.idDemande
     const dispatch = useDispatch()
 
+    const [userDetailVisible, setUserDetailVisible] = useState(false);
+    const [userDetail, setUserDetail] = useState();
     const [refreshing, setRefreshing] = useState(false);
-    const [filterHelpVisible, setFilterHelpVisible] = useState(false);
     const isLoading = useSelector((state) => state.HelpRequestReducer.isLoading);
-    const allDemande = useSelector((state) => state.HelpRequestReducer.allDemande);
-    const demandeFilter = useSelector((state) => state.HelpRequestReducer.demandeFilter);
-    const userData = useSelector((state) => state.HomeReducer.userData);
+    const demandeWithUserJoin = useSelector((state) => state.HelpRequestReducer.demandeWithUserJoin);
 
     useEffect(() => {
-        dispatch(GetAllDemandeWithFilter(demandeFilter))
+        dispatch(GetAllUserJoin({ "_id": idDemande }))
     }, [])
 
     useEffect(() => {
@@ -40,14 +41,31 @@ export default function HelpRequestList(props) {
         }
     }
 
+    const visibelDialog = (user) => {
+        setUserDetailVisible(true)
+        setUserDetail(user)
+    }
+
+    // const AcceptUserJoin = () => {
+    // }
+
+    const isExist = (idUserJoin) => {
+        const result
+        demandeWithUserJoin.userJoinWithStatus.map((value) => {
+            if (value.idUserJoin == idUserJoin) {
+                result = value
+            }
+        })
+        return result
+    }
     const onRefresh = () => {
         setRefreshing(true);
-        dispatch(GetAllDemandeWithFilter(demandeFilter))
+        dispatch(GetAllUserJoin({ "_id": idDemande }))
     }
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            {!filterHelpVisible && <Header navigation={props.navigation} screenTitel="Liste des demandes d'aide" onPressFilter={() => setFilterHelpVisible(true)} />}
+            <Header navigation={props.navigation} outSideDrawer={true} screenTitel="Les personnes participant" />
             <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 30 }}
                 refreshControl={
                     <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
@@ -55,34 +73,40 @@ export default function HelpRequestList(props) {
                 {isLoading ?
                     <Loader />
                     : <View>
-                        {allDemande.map((demande, index) =>
-                            demande.idUser != userData._id &&
+                        {demandeWithUserJoin.userJoin && demandeWithUserJoin.userJoin.map((user, index) =>
                             <Card key={index} style={{ backgroundColor: "#fff", marginLeft: 10, marginRight: 10, marginTop: 10 }}>
                                 <View style={{ padding: 20 }}>
                                     <View style={{ flexDirection: "row", alignItems: "center" }}>
-                                        <Avatar.Icon size={40} icon="bullhorn-outline" />
+                                        <Avatar.Icon size={40} icon="account" />
                                         <View style={{ width: "70%", marginLeft: 20 }}>
-                                            <Subheading>{demande.Titre}</Subheading>
-                                            <Caption>{demande.Description}</Caption>
+                                            <Subheading>{user.Nom} {user.Prenom}</Subheading>
+                                            <Caption>{user.Nmobile}</Caption>
                                         </View>
                                         <IconButton
-                                            icon="clipboard-text-play-outline"
+                                            icon="account-badge-horizontal-outline"
                                             color="#6200ee"
                                             size={30}
-                                            onPress={() => props.navigation.navigate("HelpRequestDetails", { "demande": demande, "myHelpRequest": false })}
+                                            onPress={() => visibelDialog(user)}
                                         />
                                     </View>
                                     <View style={{ flexDirection: "row", alignItems: "center" }}>
                                         <Avatar.Icon size={30} icon="map-marker" style={{ backgroundColor: "#fff" }} />
-                                        <Text style={{ color: "rgba(0,0,0,.54)" }}>{getState(demande.State)} {getDelegation(demande.Delegation)} {demande.Adresse}</Text>
+                                        <Text style={{ color: "rgba(0,0,0,.54)" }}>{getState(user.State)} {getDelegation(user.Delegation)} {user.Adresse}</Text>
                                     </View>
+                                    {isExist(user._id) && <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 10, paddingLeft: 20, paddingRight: 20 }}>
+                                        <Button color="#53AE63" icon="account-check" mode="outlined" onPress={() => AcceptUserJoin()}>
+                                            Accepter
+                                        </Button>
+                                        <Button color="#D6483E" icon="account-minus" mode="outlined" onPress={() => console.log('Pressed')}>
+                                            refuser
+                                        </Button>
+                                    </View>}
                                 </View>
                             </Card>
                         )}
                     </View>}
             </ScrollView >
-            {filterHelpVisible && !isLoading && <FilterHelpRequest filterHelpVisible={filterHelpVisible} hideDialog={() => setFilterHelpVisible(false)} />}
+            <UserDetails userDetail={userDetail} userDetailVisible={userDetailVisible} hideDialog={() => setUserDetailVisible(false)} />
         </SafeAreaView>
     );
 }
-

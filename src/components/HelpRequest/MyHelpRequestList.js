@@ -47,7 +47,7 @@ export default function HelpRequestList(props) {
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            {!filterHelpVisible && <Header navigation={props.navigation} screenTitel="Liste des demandes d'aide" onPressFilter={() => setFilterHelpVisible(true)} />}
+            {!filterHelpVisible && <Header navigation={props.navigation} screenTitel="Mes demandes" onPressFilter={() => setFilterHelpVisible(true)} />}
             <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 30 }}
                 refreshControl={
                     <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
@@ -56,7 +56,7 @@ export default function HelpRequestList(props) {
                     <Loader />
                     : <View>
                         {allDemande.map((demande, index) =>
-                            demande.idUser != userData._id &&
+                            demande.idUser == userData._id &&
                             <Card key={index} style={{ backgroundColor: "#fff", marginLeft: 10, marginRight: 10, marginTop: 10 }}>
                                 <View style={{ padding: 20 }}>
                                     <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -69,7 +69,7 @@ export default function HelpRequestList(props) {
                                             icon="clipboard-text-play-outline"
                                             color="#6200ee"
                                             size={30}
-                                            onPress={() => props.navigation.navigate("HelpRequestDetails", { "demande": demande, "myHelpRequest": false })}
+                                            onPress={() => props.navigation.navigate("HelpRequestDetails", { "demande": demande, "myHelpRequest": true })}
                                         />
                                     </View>
                                     <View style={{ flexDirection: "row", alignItems: "center" }}>

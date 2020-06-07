@@ -8,32 +8,27 @@ import {
 
 
 import { LineChart } from 'react-native-charts-wrapper';
+import moment from 'moment';
 
 export default LineCharte = (props) => {
-const [marker,setMarker] = useState({ enabled: true,digits: 1, markerColor: processColor(props.lineColor), textColor: processColor('white'), markerFontSize: 14,})
+    const [marker, setMarker] = useState({ enabled: true, digits: 1, markerColor: processColor(props.lineColor), textColor: processColor('white'), markerFontSize: 14, })
 
     const dataChartX = () => {
-        const dataValueX = []
-        props.data.map((value, i) => {
-
-            dataValueX.push(`00${i}`.slice(-2))
-        })
         return {
-            valueFormatter: dataValueX,
+            valueFormatter: 'date',
+            valueFormatterPattern: 'dd/MM',
             position: 'BOTTOM',
             granularityEnabled: true,
             granularity: 1,
             labelCount: 10,
             drawGridLines: false,
-            // fontFamily: "HelveticaNeue-Medium",
         }
 
     }
 
-    const dataChartY = (label, color,lineColor) => {
-        const dataValueY=props.data
+    const dataChartY = (label, color, lineColor) => {
         return {
-            values: dataValueY,
+            values: props.data,
             label: label,
             config: {
                 mode: "HORIZONTAL_BEZIER",
@@ -49,6 +44,61 @@ const [marker,setMarker] = useState({ enabled: true,digits: 1, markerColor: proc
                 drawFilled: true,
                 fillGradient: {
                     colors: [processColor('rgba(255, 255, 255, 0.2)'), processColor(color)],
+                    positions: [0, 0.5],
+                    angle: 90,
+                    orientation: "TOP_BOTTOM"
+                },
+                fillAlpha: 1000,
+            }
+        }
+    }
+
+
+    const dataRetabliesChartY = (label, color, lineColor) => {
+        return {
+            values: props.dataRetablies,
+            label: label,
+            config: {
+                mode: "HORIZONTAL_BEZIER",
+                drawValues: false,
+                lineWidth: 2,
+                drawCircles: true,
+                circleColor: processColor(lineColor),
+                drawCircleHole: false,
+                circleRadius: 2,
+                highlightColor: processColor("#696969"),
+                color: processColor(lineColor),
+                valueTextSize: 12,
+                drawFilled: true,
+                fillGradient: {
+                    colors: [processColor('rgba(255, 255, 255, 0.1)'), processColor(color)],
+                    positions: [0, 0.5],
+                    angle: 90,
+                    orientation: "TOP_BOTTOM"
+                },
+                fillAlpha: 1000,
+            }
+        }
+    }
+
+    const dataDecesChartY = (label, color, lineColor) => {
+        return {
+            values: props.dataDeces,
+            label: label,
+            config: {
+                mode: "HORIZONTAL_BEZIER",
+                drawValues: false,
+                lineWidth: 2,
+                drawCircles: true,
+                circleColor: processColor(lineColor),
+                drawCircleHole: false,
+                circleRadius: 2,
+                highlightColor: processColor("#696969"),
+                color: processColor(lineColor),
+                valueTextSize: 12,
+                drawFilled: true,
+                fillGradient: {
+                    colors: [processColor('rgba(255, 255, 255, 0.1)'), processColor(color)],
                     positions: [0, 0.5],
                     angle: 90,
                     orientation: "TOP_BOTTOM"
@@ -77,7 +127,7 @@ const [marker,setMarker] = useState({ enabled: true,digits: 1, markerColor: proc
                 chartDescription={{ text: '' }}
                 legend={{ enabled: false }}
                 marker={marker}
-                yAxis={{ left: { drawGridLines: false,},right: { enabled: false,drawGridLines: false, } }}
+                yAxis={{ left: { drawGridLines: false, }, right: { enabled: false, drawGridLines: false, } }}
                 xAxis={dataChartX()}
                 drawGridBackground={true}
                 borderWidth={1}
@@ -99,12 +149,14 @@ const [marker,setMarker] = useState({ enabled: true,digits: 1, markerColor: proc
                 dragDecelerationEnabled={true}
                 dragDecelerationFrictionCoef={0.99}
                 keepPositionOnRotation={false}
-
                 data={
                     {
-                        dataSets: [dataChartY(props.label,props.color,props.lineColor)]
+                        dataSets: [
+                            dataChartY(props.label, "rgba(231, 81, 49,0.5)", "rgba(231, 81, 49,1)"),
+                            dataRetabliesChartY(props.label, "rgba(0, 175, 128,0.5)", "rgba( 0, 175, 128,1)"),
+                            dataDecesChartY(props.label, "rgb(133, 133, 133)", "rgb(133, 133, 133)"),
+                        ]
                     }
-
                 }
             />
 

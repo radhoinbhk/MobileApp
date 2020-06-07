@@ -247,7 +247,7 @@ export default function SignupForm(props) {
                             </View>
                             :
                             <>
-                                <Text style={{ color: "#7f7f7f", fontSize: 16, width: 300, marginBottom: 10 }}>Votre rôle dans  une structure publique ou associative :</Text>
+                                <Text style={{ color: "#7f7f7f", fontSize: 16, width: 300, marginBottom: 10 }}>Votre rôle dans  une structure publique ou association :</Text>
                                 <TextInput
                                     style={{ width: 300, marginBottom: 50 }}
                                     label='rôle'
