@@ -1,4 +1,4 @@
-import { ADD_DEMADE_ISERROR, ADD_DEMADE_ISSUCCESS, ADD_DEMADE_IS_LOADING, SET_ALL_DEMANDE, SET_ALL_REPONSE, SAVE_NEW_REPONSE, ADD_NEW_DEMANDE, DEMANDE_FILTER, SET_ASSOCIATION_LIST, USER_JOIN_ISSUCCESS, USER_JOIN_ISERROR } from '../Action/Type';
+import { ADD_DEMADE_ISERROR, ADD_DEMADE_ISSUCCESS, ADD_DEMADE_IS_LOADING, SET_ALL_DEMANDE, SET_ALL_REPONSE, SAVE_NEW_REPONSE, ADD_NEW_DEMANDE, DEMANDE_FILTER, SET_ASSOCIATION_LIST, USER_JOIN_ISSUCCESS, USER_JOIN_ISERROR, SET_DEMANDE_WITH_USER_JOIN } from '../Action/Type';
 
 const initialState = {
     addDemandeIsError: false,
@@ -9,7 +9,8 @@ const initialState = {
     demandeFilter: {},
     setAssociationList: [],
     userJoinIsError: false,
-    userJoinIsSuccess: false
+    userJoinIsSuccess: false,
+    demandeWithUserJoin: {}
 }
 export default (state = initialState, action) => {
     const { type, payload } = action;
@@ -69,6 +70,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 userJoinIsError: action.userJoinIsError
+            };
+        case SET_DEMANDE_WITH_USER_JOIN:
+            return {
+                ...state,
+                demandeWithUserJoin: action.demandeWithUserJoin
             };
         default:
             return state

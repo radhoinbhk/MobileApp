@@ -9,7 +9,8 @@ import {
     SAVE_NEW_REPONSE,
     DEMANDE_FILTER,
     USER_JOIN_ISERROR,
-    USER_JOIN_ISSUCCESS
+    USER_JOIN_ISSUCCESS,
+    SET_DEMANDE_WITH_USER_JOIN
 } from './Type'
 import Axios from 'axios'
 
@@ -45,6 +46,13 @@ export function SetAllDemande(demandes) {
     return {
         type: SET_ALL_DEMANDE,
         allDemande: demandes
+    }
+}
+
+export function SetDemandeWithUserJoin(demandeWithUserJoin) {
+    return {
+        type: SET_DEMANDE_WITH_USER_JOIN,
+        demandeWithUserJoin: demandeWithUserJoin
     }
 }
 
@@ -90,6 +98,32 @@ export function UserJoinIsError(bool) {
     }
 }
 
+export function addStatusUserJoin(body) {
+    return (dispatch) => {
+        dispatch(IsLoading(true))
+        /**
+         * rederige to Home if API return error that is a problem
+         */
+        Axios.post("http://192.168.1.20:3000/demande/addStatusUserJoin", body)
+            .then(function (response) {
+                // handle success
+                Axios.post("http://192.168.1.20:3000/demande/getDemandeWithFilter", { "_id": idDemande })
+                    .then(function (response) {
+                        // handle success
+                        dispatch(SetDemandeWithUserJoin(response.data[0]))
+                        dispatch(IsLoading(false))
+                    })
+                    .catch(function (error) {
+                        // handle error
+                        dispatch(IsLoading(false))
+                    })
+            })
+            .catch(function (error) {
+                // handle error
+                dispatch(IsLoading(false))
+            })
+    }
+}
 
 export function getAssociation(filter) {
     return (dispatch) => {
@@ -123,6 +157,26 @@ export function AddUserJoin(body) {
             .catch(function (error) {
                 // handle error
                 dispatch(userJoinIsError(true))
+                dispatch(IsLoading(false))
+            })
+    }
+}
+
+export function GetAllUserJoin(body) {
+    return (dispatch) => {
+        dispatch(IsLoading(true))
+        /**
+         * rederige to Home if API return error that is a problem
+         */
+        Axios.post("http://192.168.1.20:3000/demande/getDemandeWithFilter", body)
+            .then(function (response) {
+                // handle success
+                dispatch(SetDemandeWithUserJoin(response.data[0]))
+                dispatch(IsLoading(false))
+            })
+            .catch(function (error) {
+                // handle error
+                console.warn("error", error);
                 dispatch(IsLoading(false))
             })
     }

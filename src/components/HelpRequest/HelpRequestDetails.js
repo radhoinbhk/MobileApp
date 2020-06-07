@@ -73,7 +73,7 @@ export default function HelpRequestDetails(props) {
     }
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <Header navigation={props.navigation} outSideDrawer={true} screenTitel="détail de la demande d'aide" />
+            <Header navigation={props.navigation} outSideDrawer={true} screenTitel="Détail de la demande" />
             <ScrollView
                 contentContainerStyle={{ flexGrow: 1, paddingBottom: 90 }}
                 // refreshControl={
@@ -121,7 +121,7 @@ export default function HelpRequestDetails(props) {
                                 </Button>
                             </View>}
                             {myHelpRequest && <View style={{ alignItems: "center" }}>
-                                <Button icon="account-group" color="#4A9A82" mode="contained" onPress={() => props.navigation.navigate("PersonneParticipant")}>
+                                <Button icon="account-group" color="#4A9A82" mode="contained" onPress={() => props.navigation.navigate("PersonneParticipant", { "idDemande": demande._id })}>
                                     Les personnes participantes
                                 </Button>
                             </View>}

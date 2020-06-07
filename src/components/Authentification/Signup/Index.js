@@ -40,7 +40,7 @@ export default function Signup(props) {
                 <Card style={{ width: "70%", height: "30%" }}>
                     <Card.Content style={{ alignItems: "center", justifyContent: "center", height: "50%", width: "100%" }}>
                         <Title style={{ textAlign: "center", marginBottom: 10 }}>APPEL AUX ORGANISMES</Title>
-                        <Paragraph style={{ textAlign: "center" }}>Je suis une structure publique ou associative</Paragraph>
+                        <Paragraph style={{ textAlign: "center" }}>Je suis une structure publique ou association</Paragraph>
                     </Card.Content>
                     <Card.Actions style={{ alignItems: "center", justifyContent: "center", height: "50%" }}>
                         <Button style={{ width: 160 }} icon="check-circle" mode="contained"

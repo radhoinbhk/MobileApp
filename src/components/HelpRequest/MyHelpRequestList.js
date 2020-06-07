@@ -47,7 +47,7 @@ export default function HelpRequestList(props) {
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            {!filterHelpVisible && <Header navigation={props.navigation} screenTitel="Liste des demandes d'aide" onPressFilter={() => setFilterHelpVisible(true)} />}
+            {!filterHelpVisible && <Header navigation={props.navigation} screenTitel="Mes demandes" onPressFilter={() => setFilterHelpVisible(true)} />}
             <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 30 }}
                 refreshControl={
                     <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
