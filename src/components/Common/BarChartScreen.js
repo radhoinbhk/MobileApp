@@ -33,7 +33,7 @@ export default BarChartScreen = (props) => {
                 values: arrayValue,
                 label: '',
                 config: {
-                    color: processColor('teal'),
+                    color: processColor('rgb(133, 133, 133)'),
                     barShadowColor: processColor('lightgrey'),
                     highlightAlpha: 100,
                     // highlightColor: processColor('red'),

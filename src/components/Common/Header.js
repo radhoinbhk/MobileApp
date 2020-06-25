@@ -16,24 +16,24 @@ export default function Header(props) {
                     </Button>
                 </View>
                 :
-                <Appbar style={{ backgroundColor: "#fff", color: "#6200ee" }}>
+                <Appbar style={{ backgroundColor: "rgba(41, 182, 246, 0.6)", color: "#fff" }}>
                     {props.outSideDrawer ?
                         <IconButton
                             icon="arrow-left"
                             size={30}
                             style={{ marginLeft: 0 }}
                             onPress={() => props.navigation.goBack()}
-                            color="#6200ee"
+                            color="#fff"
                         />
                         : <IconButton
                             icon="menu"
                             style={{ marginLeft: 0 }}
                             size={30}
                             onPress={() => props.navigation.openDrawer()}
-                            color="#6200ee"
+                            color="#fff"
                         />}
                     <View style={[{ width: "80%", alignItems: "center" }, helpRList && { width:"75%" }]}>
-                        <Title style={{ color: "#6200ee" }}>{props.screenTitel}</Title>
+                        <Title style={{ color: "#fff" }}>{props.screenTitel}</Title>
 
                     </View>
                     {helpRList &&
@@ -41,7 +41,7 @@ export default function Header(props) {
                             icon="filter-outline"
                             size={30}
                             onPress={() => props.onPressFilter()}
-                            color="#6200ee"
+                            color="#fff"
                         />}
                 </Appbar>
             }

@@ -6,8 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetAllUserJoin } from "../../redux/Action/HelpRequestAction";
 import Loader from "../Common/Loader";
 import Tunisia from '../Common/Tunisia.json'
-import FilterHelpRequest from "./FilterHelpRequest";
-import UserDetails from "./UserDetails";
+import UserDetails from "../Common/UserDetails";
 
 export default function PersonnesPartcipant(props) {
     const idDemande = props.route.params.idDemande
@@ -46,11 +45,9 @@ export default function PersonnesPartcipant(props) {
         setUserDetail(user)
     }
 
-    // const AcceptUserJoin = () => {
-    // }
 
     const isExist = (idUserJoin) => {
-        const result
+        let result;
         demandeWithUserJoin.userJoinWithStatus.map((value) => {
             if (value.idUserJoin == idUserJoin) {
                 result = value

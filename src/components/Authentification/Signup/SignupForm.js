@@ -167,7 +167,7 @@ export default function SignupForm(props) {
                                 mode='dialog'
                                 selectedValue={gouvernoratValue}
                                 style={{ height: 56, width: 300, color: "#7f7f7f" }}
-                                onValueChange={(itemValue, itemIndex) => { setGouvernoratValue(itemValue), console.log("GouvernoratitemValue", itemValue) }}
+                                onValueChange={(itemValue, itemIndex) => { setGouvernoratValue(itemValue) }}
                             >
                                 <Picker.Item label="Choisir le Gouvernorat" />
                                 {Tunisia.map((gouvernorat, index) =>
@@ -227,23 +227,23 @@ export default function SignupForm(props) {
                                     display="default"
                                     onChange={onchangeDate}
                                 />}
-                                <Text style={{ color: "#7f7f7f", fontSize: 16 }}>Infecté ?</Text>
+                                {/* <Text style={{ color: "#7f7f7f", fontSize: 16 }}>Infecté ?</Text>
                                 <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 50 }}>
                                     <Text style={{ color: "#7f7f7f", fontSize: 16 }}>Oui</Text>
                                     <RadioButton
-                                        color="#6200ee"
+                                        color="rgba(41, 182, 246, 1)"
                                         value="oui"
                                         status={infecté ? 'checked' : 'unchecked'}
                                         onPress={() => setInfecté(!infecté)}
                                     />
                                     <Text style={{ color: "#7f7f7f", fontSize: 16 }}>Non</Text>
                                     <RadioButton
-                                        color="#6200ee"
+                                        color="rgba(41, 182, 246, 1)"
                                         value="non"
                                         status={!infecté ? 'checked' : 'unchecked'}
                                         onPress={() => setInfecté(!infecté)}
                                     />
-                                </View>
+                                </View> */}
                             </View>
                             :
                             <>

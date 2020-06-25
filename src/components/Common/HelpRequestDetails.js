@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { View, ScrollView, Text, RefreshControl, SafeAreaView, Keyboard } from 'react-native';
-import Header from "../Common/Header";
+import Header from "./Header";
 import { Card, Avatar, IconButton, Subheading, Caption, Title, Headline, Divider, TextInput, Appbar, Button, TouchableRipple, Badge } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
 import { AddReponse, GetAllReponse, AddUserJoin, UserJoinIsSuccess } from "../../redux/Action/HelpRequestAction";
-import Loader from "../Common/Loader";
-import Tunisia from '../Common/Tunisia.json'
+import Loader from "./Loader";
+import Tunisia from './Tunisia.json'
 import moment from "moment";
 import UserDetails from "./UserDetails";
 
@@ -17,7 +17,7 @@ export default function HelpRequestDetails(props) {
     const [reponse, setReponse] = useState("");
     const [userDetailVisible, setUserDetailVisible] = useState(false);
     const [userDetail, setUserDetail] = useState();
-    const [sumUserJoin, setSumUserJoin] = useState(demande.userJoin.length);
+    const [sumUserJoin, setSumUserJoin] = useState(demande.userJoin && demande.userJoin.length);
     const userData = useSelector((state) => state.HomeReducer.userData);
     const allReponse = useSelector((state) => state.HelpRequestReducer.allReponse);
     const isLoading = useSelector((state) => state.HelpRequestReducer.isLoading);
@@ -84,8 +84,8 @@ export default function HelpRequestDetails(props) {
                     : <View style={{ flex: 1 }} >
                         <Card style={{ padding: 20, marginBottom: 10, marginLeft: 10, marginRight: 10 }}>
                             <View style={{ alignItems: "center", marginBottom: 20 }}>
-                                <Text style={{ position: "absolute", top: 0, left: "55%", zIndex: 1, backgroundColor: "#4A9A82", color: "#fff", paddingLeft: 6, paddingRight: 6, borderRadius: 50 }}>{sumUserJoin}</Text>
-                                <Avatar.Icon size={70} icon="bullhorn-outline" />
+                                <Text style={{ position: "absolute", top: 0, left: "55%", zIndex: 1, backgroundColor: "rgb(227, 108, 141)", color: "#fff", paddingLeft: 6, paddingRight: 6, borderRadius: 50 }}>{sumUserJoin}</Text>
+                                <Avatar.Icon size={70} icon="bullhorn-outline" color="#fff" style={{backgroundColor:"rgba(41, 182, 246, 1)"}}/>
                                 <Title>{demande.Titre}</Title>
                                 <View style={{ flexDirection: "row", alignItems: "center" }}>
                                     <Avatar.Icon size={30} icon="map-marker" style={{ backgroundColor: "#fff" }} />
@@ -105,23 +105,23 @@ export default function HelpRequestDetails(props) {
                             <Divider style={{ marginBottom: 20 }} />
                             <View style={{ marginBottom: 20, flexDirection: "row" }}>
                                 <Subheading>NOMBRE MAXIMUM DE BÉNÉVOLE :</Subheading>
-                                <Text style={{ marginLeft: 15, backgroundColor: "#4A9A82", color: "#fff", width: 30, height: 30, lineHeight: 25, textAlign: "center", borderRadius: 50 }}>23</Text>
+                                <Text style={{ marginLeft: 15, backgroundColor: "rgba(41, 182, 246, 1)", color: "#fff", width: 30, height: 30, lineHeight: 25, textAlign: "center", borderRadius: 50 }}>23</Text>
                             </View>
                             <Divider style={{ marginBottom: 20 }} />
                             <View style={{ marginBottom: 40 }}>
                                 <Subheading>ÉTAT DE LA DEMANDE :</Subheading>
                                 {/* <Text style={{ marginTop: 20, borderColor: "#E75131", color: "#E75131", borderWidth: 1, textAlign: "center", padding: 5, width: 150, borderRadius: 20, marginLeft: "auto", marginRight: "auto" }}>FERMÉE</Text> */}
                                 {sumUserJoin == 0
-                                    ? <Text style={{ marginTop: 20, borderColor: "#FF6E09", color: "#FF6E09", borderWidth: 1, textAlign: "center", padding: 5, width: 150, borderRadius: 20, marginLeft: "auto", marginRight: "auto" }}>EN ATTENTE</Text>
-                                    : <Text style={{ marginTop: 20, borderColor: "#4A9A82", color: "#4A9A82", borderWidth: 1, textAlign: "center", padding: 5, width: 150, borderRadius: 20, marginLeft: "auto", marginRight: "auto" }}>EN COURS</Text>}
+                                    ? <Text style={{ marginTop: 20, borderColor: "rgb(227, 108, 141)", color: "rgb(227, 108, 141)", borderWidth: 1, textAlign: "center", padding: 5, width: 150, borderRadius: 20, marginLeft: "auto", marginRight: "auto" }}>EN ATTENTE</Text>
+                                    : <Text style={{ marginTop: 20, borderColor: "rgba(41, 182, 246, 1)", color: "rgba(41, 182, 246, 1)", borderWidth: 1, textAlign: "center", padding: 5, width: 150, borderRadius: 20, marginLeft: "auto", marginRight: "auto" }}>EN COURS</Text>}
                             </View>
                             {!userJoinIsSuccess && !myHelpRequest && <View style={{ width: "100%", alignItems: "center" }}>
-                                <Button icon="account-multiple-plus" color="#4A9A82" style={{ width: 200 }} mode="contained" onPress={() => OnPreesRejoindre()}>
+                                <Button icon="account-multiple-plus" color="rgba(41, 182, 246, 1)" style={{ width: 200 }} mode="contained" onPress={() => OnPreesRejoindre()}>
                                     Rejoindre
                                 </Button>
                             </View>}
                             {myHelpRequest && <View style={{ alignItems: "center" }}>
-                                <Button icon="account-group" color="#4A9A82" mode="contained" onPress={() => props.navigation.navigate("PersonneParticipant", { "idDemande": demande._id })}>
+                                <Button icon="account-group" color="rgba(41, 182, 246, 1)" labelStyle={{color:"#fff"}} mode="contained" onPress={() => props.navigation.navigate("PersonneParticipant", { "idDemande": demande._id })}>
                                     Les personnes participantes
                                 </Button>
                             </View>}
@@ -130,14 +130,14 @@ export default function HelpRequestDetails(props) {
                             <Card key={index} style={{ marginLeft: 10, marginRight: 10, marginBottom: 10 }}>
                                 <View style={{ padding: 20 }}>
                                     <View style={{ flexDirection: "row", alignItems: "center" }}>
-                                        <Avatar.Text size={40} label={reponse.idUser.Nom[0]} />
+                                        <Avatar.Text size={40} label={reponse.idUser.Nom[0]} color="#fff" style={{backgroundColor:"rgba(41, 182, 246, 1)"}} />
                                         <View style={{ width: "70%", marginLeft: 20 }}>
                                             <Subheading>{reponse.idUser.Nom} {reponse.idUser.Prenom}</Subheading>
                                             <Caption>{reponse.descriptionReponse}</Caption>
                                         </View>
                                         <IconButton
                                             icon="account-badge-horizontal-outline"
-                                            color="#6200ee"
+                                            color="rgba(41, 182, 246, 1)"
                                             size={30}
                                             onPress={() => visibelDialog(reponse.idUser)}
                                         />
@@ -166,7 +166,7 @@ export default function HelpRequestDetails(props) {
                 />
                 <IconButton
                     icon="send"
-                    color="#6200ee"
+                    color="rgba(41, 182, 246, 1)"
                     size={30}
                     onPress={() => saveReponse()}
                 />

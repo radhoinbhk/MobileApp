@@ -42,7 +42,7 @@ export default function AddHelpRequest(props) {
             setGouvernoratValue()
             setDelegationValue()
             setAdresse()
-            props.navigation.navigate("Liste des demandes d'aide")
+            props.navigation.navigate("mes demandes")
         }
     }, [addDemandeIsSuccess])
 
@@ -67,10 +67,11 @@ export default function AddHelpRequest(props) {
                 <Loader />
                 : <View style={{ justifyContent: "center", alignItems: "center", marginTop: 30 }}>
                     <TextInput
-                        style={{ width: 300, marginBottom: 30 }}
+                        style={{ width: 300, marginBottom: 30, color: "rgba(41, 182, 246, 0.6)" }}
                         label='TITRE DE LA MISSION'
                         value={titre}
                         mode='outlined'
+                        theme={{ colors: { primary: 'rgba(41, 182, 246, 1)'}}}
                         onChangeText={value => setTitre(value)}
                     />
                     <TextInput
@@ -78,6 +79,7 @@ export default function AddHelpRequest(props) {
                         label='OBJECTIF DE LA MISSION'
                         value={objectif}
                         mode='outlined'
+                        theme={{ colors: { primary: 'rgba(41, 182, 246, 1)'}}}
                         onChangeText={value => setObjectif(value)}
                     />
                     <TextInput
@@ -87,6 +89,7 @@ export default function AddHelpRequest(props) {
                         label='DESCRIPTION DE LA MISSION'
                         value={description}
                         mode='outlined'
+                        theme={{ colors: { primary: 'rgba(41, 182, 246, 1)'}}}
                         onChangeText={value => setDescription(value)}
                     />
                     <View style={{ width: 300, marginBottom: 30 }}>
@@ -114,7 +117,7 @@ export default function AddHelpRequest(props) {
                             mode='dialog'
                             selectedValue={gouvernoratValue}
                             style={{ height: 56, width: 300, color: "#7f7f7f" }}
-                            onValueChange={(itemValue, itemIndex) => { setGouvernoratValue(itemValue), console.log("GouvernoratitemValue", itemValue) }}
+                            onValueChange={(itemValue, itemIndex) => { setGouvernoratValue(itemValue) }}
                         >
                             <Picker.Item label="Choisir le Gouvernorat" />
                             {Tunisia.map((gouvernorat, index) =>
@@ -140,9 +143,10 @@ export default function AddHelpRequest(props) {
                         label='Adresse'
                         value={adresse}
                         mode='outlined'
+                        theme={{ colors: { primary: 'rgba(41, 182, 246, 1)'}}}
                         onChangeText={value => setAdresse(value)}
                     />
-                    <Button style={{ marginBottom: 50 }} icon="content-save" mode="contained" onPress={() => Sinscrire()}>
+                    <Button color="rgba(41, 182, 246, 1)" style={{ marginBottom: 50 }} labelStyle={{color:"#fff"}} icon="content-save" mode="contained" onPress={() => Sinscrire()}>
                         Enregistrer la demande
                 </Button>
                 </View>}

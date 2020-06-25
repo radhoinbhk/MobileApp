@@ -41,7 +41,7 @@ function Login(props) {
                 size={25}
                 onPress={() => props.navigation.goBack()}
                 color="#fff"
-                style={{ marginLeft: 30, marginTop: 30, position: "absolute", backgroundColor: "#6200ee" }}
+                style={{ marginLeft: 30, marginTop: 30, position: "absolute", backgroundColor: "rgba(41, 182, 246, 1)" }}
             /> */}
                     <View style={{ justifyContent: "center", alignItems: "center", marginTop: 30, height: "85%" }}>
                         <TextInput

@@ -4,7 +4,7 @@ import { Button, Avatar, Title, IconButton, Card, Subheading, ThemeProvider, Sea
 import { useDispatch, useSelector } from "react-redux";
 import Tunisia from '../Common/Tunisia.json'
 import DomainAction from '../Common/DomainAction.json'
-import { GetAllDemandeWithFilter, getAssociation } from "../../redux/Action/HelpRequestAction";
+import { GetAllDemandeWithFilter } from "../../redux/Action/HelpRequestAction";
 
 export default function FilterHelpRequest(props) {
     const [filter, setFilter] = useState("Tous");
@@ -12,8 +12,7 @@ export default function FilterHelpRequest(props) {
     const [delegationValue, setDelegationValue] = useState();
     const [delegationList, setDelegationList] = useState();
     const [domainAction, setDomainAction] = useState();
-    const [searchAssociation, setSearchAssociation] = useState();
-    const associationList = useSelector((state) => state.HelpRequestReducer.setAssociationList);
+    const userData = useSelector((state) => state.HomeReducer.userData);
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -38,7 +37,10 @@ export default function FilterHelpRequest(props) {
                     "Domaine_action": domainAction
                 }
                 break;
-            case "Domaine d'action":
+            case "J'ai participé":
+                body = {
+                    "userJoin": userData._id
+                }
                 break;
             default:
                 body = {}
@@ -48,11 +50,6 @@ export default function FilterHelpRequest(props) {
         props.hideDialog()
     }
 
-    const onChangeSearch = (value) => {
-        setSearchAssociation(value)
-        dispatch(getAssociation(value))
-    }
-    
     const FilterCard = (props) => {
         return (
             <View style={{ justifyContent: "center", alignItems: "center" }}>
@@ -104,19 +101,6 @@ export default function FilterHelpRequest(props) {
                                 </Picker>
                             </View>
                         }
-                        {filter == "Association" &&
-                            <View style={{ width: 300, marginBottom: 20, borderColor: "#fff", borderWidth: 1, borderRadius: 4, marginTop: 20 }}>
-                                <Searchbar
-                                    placeholder="Search"
-                                    iconColor={props.color}
-                                    onChangeText={onChangeSearch}
-                                    value={searchAssociation}
-                                />
-                                {associationList && associationList.map((value, index) =>
-                                    <List.Item key={index} style={{ backgroundColor: "#fff" }} title={value.Nom} />
-                                )}
-                            </View>
-                        }
                     </View>
                     <View style={{ alignItems: "center" }}>
                         <Button onPress={() => showFilter()} icon="check-bold" mode="outlined" color={props.color} style={{ marginTop: 30, width: 200, backgroundColor: "#fff" }} >
@@ -139,41 +123,41 @@ export default function FilterHelpRequest(props) {
                     onPress={() => props.hideDialog()}
                 />
                 <View style={{ alignItems: "center", justifyContent: "center", flexDirection: "row", marginBottom: 30, marginTop: 30 }}>
-                    <Card style={{ backgroundColor: "#e37280", width: 180, height: 100, borderRadius: 20, marginRight: 20 }}>
+                    <Card style={{ backgroundColor: "#86DBD4", width: 180, height: 100, borderRadius: 20, marginRight: 20 }}>
                         <TouchableOpacity style={{ width: 180, height: 100, justifyContent: "center", alignItems: "center" }} onPress={() => setFilter("Tous")}>
-                            <Avatar.Icon size={50} color="#fff" style={{ backgroundColor: "#e37280", height: 40 }} icon="check-all" />
+                            <Avatar.Icon size={50} color="#fff" style={{ backgroundColor: "#86DBD4", height: 40 }} icon="check-all" />
                             <Subheading style={{ color: "#fff" }}>Tous</Subheading>
                         </TouchableOpacity>
                     </Card>
-                    <Card style={{ backgroundColor: "#73ccdb", width: 180, height: 100, borderRadius: 20 }}>
+                    <Card style={{ backgroundColor: "#E36C8D", width: 180, height: 100, borderRadius: 20 }}>
                         <TouchableOpacity style={{ width: 180, height: 100, justifyContent: "center", alignItems: "center" }} onPress={() => setFilter("Région")}>
-                            <Avatar.Icon size={50} color="#fff" style={{ backgroundColor: "#73ccdb", height: 40 }} icon="home-city" />
+                            <Avatar.Icon size={50} color="#fff" style={{ backgroundColor: "#E36C8D", height: 40 }} icon="home-city" />
                             <Subheading style={{ color: "#fff" }}>Région</Subheading>
                         </TouchableOpacity>
                     </Card>
                 </View>
                 <View style={{ alignItems: "center", justifyContent: "center", flexDirection: "row", flexWrap: "wrap", marginBottom: 40 }}>
-                    <Card style={{ backgroundColor: "#524fdd", width: 180, height: 100, borderRadius: 20, marginRight: 20 }}>
+                    <Card style={{ backgroundColor: "#F6D37B", width: 180, height: 100, borderRadius: 20, marginRight: 20 }}>
                         <TouchableOpacity style={{ width: 180, height: 100, justifyContent: "center", alignItems: "center" }} onPress={() => setFilter("Domaine d'action")}>
-                            <Avatar.Icon size={50} color="#fff" style={{ backgroundColor: "#524fdd", height: 40 }} icon="charity" />
+                            <Avatar.Icon size={50} color="#fff" style={{ backgroundColor: "#F6D37B", height: 40 }} icon="charity" />
                             <Subheading style={{ color: "#fff" }}>Domaine d'action</Subheading>
                         </TouchableOpacity>
                     </Card>
-                    <Card style={{ backgroundColor: "#e58f3e", width: 180, height: 100, borderRadius: 20 }}>
-                        <TouchableOpacity style={{ width: 180, height: 100, justifyContent: "center", alignItems: "center" }} onPress={() => setFilter("Association")}>
-                            <Avatar.Icon size={50} color="#fff" style={{ backgroundColor: "#e58f3e", height: 40 }} icon="account-group" />
-                            <Subheading style={{ color: "#fff" }}>Association</Subheading>
+                    <Card style={{ backgroundColor: "rgb(133, 133, 133)", width: 180, height: 100, borderRadius: 20 }}>
+                        <TouchableOpacity style={{ width: 180, height: 100, justifyContent: "center", alignItems: "center" }} onPress={() => setFilter("J'ai participé")}>
+                            <Avatar.Icon size={50} color="#fff" style={{ backgroundColor: "rgb(133, 133, 133)", height: 40 }} icon="account-group" />
+                            <Subheading style={{ color: "#fff" }}>J'ai participé</Subheading>
                         </TouchableOpacity>
                     </Card>
                 </View>
                 <View style={{ justifyContent: "center" }}>
-                    {filter == "Association" ?
-                        <FilterCard color="#e58f3e" text="Trouver une mission à travers une association" />
+                    {filter == "J'ai participé" ?
+                        <FilterCard color="rgb(133, 133, 133)" text="Trouver une mission que j'ai participé" />
                         : filter == "Domaine d'action" ?
-                            <FilterCard color="#524fdd" text="Trouver une mission à travers les domaines d'action" />
+                            <FilterCard color="#F6D37B" text="Trouver une mission à travers les domaines d'action" />
                             : filter == "Région" ?
-                                <FilterCard color="#73ccdb" text="Trouver une mission dans votre Région" />
-                                : <FilterCard color="#e37280" text="Afficher tous les missions" />
+                                <FilterCard color="#E36C8D" text="Trouver une mission dans votre Région" />
+                                : <FilterCard color="#86DBD4" text="Afficher tous les missions" />
                     }
                 </View>
             </ScrollView>

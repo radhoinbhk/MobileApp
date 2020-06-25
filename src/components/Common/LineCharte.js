@@ -152,9 +152,9 @@ export default LineCharte = (props) => {
                 data={
                     {
                         dataSets: [
-                            dataChartY(props.label, "rgba(231, 81, 49,0.5)", "rgba(231, 81, 49,1)"),
-                            dataRetabliesChartY(props.label, "rgba(0, 175, 128,0.5)", "rgba( 0, 175, 128,1)"),
-                            dataDecesChartY(props.label, "rgb(133, 133, 133)", "rgb(133, 133, 133)"),
+                            dataChartY(props.label, "#E36C8D", "#E36C8D"),
+                            dataRetabliesChartY(props.label, "#86DBD4", "#86DBD4"),
+                            dataDecesChartY(props.label, "#F6D37B", "#F6D37B"),
                         ]
                     }
                 }

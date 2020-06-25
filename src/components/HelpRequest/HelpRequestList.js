@@ -67,7 +67,7 @@ export default function HelpRequestList(props) {
                                         </View>
                                         <IconButton
                                             icon="clipboard-text-play-outline"
-                                            color="#6200ee"
+                                            color="rgba(41, 182, 246, 1)"
                                             size={30}
                                             onPress={() => props.navigation.navigate("HelpRequestDetails", { "demande": demande, "myHelpRequest": false })}
                                         />

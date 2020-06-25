@@ -10,7 +10,8 @@ import {
     DEMANDE_FILTER,
     USER_JOIN_ISERROR,
     USER_JOIN_ISSUCCESS,
-    SET_DEMANDE_WITH_USER_JOIN
+    SET_DEMANDE_WITH_USER_JOIN,
+    SET_MY_DEMANDE
 } from './Type'
 import Axios from 'axios'
 
@@ -39,6 +40,13 @@ export function IsLoading(bool) {
     return {
         type: ADD_DEMADE_IS_LOADING,
         isLoading: bool
+    }
+}
+
+export function SetMyDemande(demandes) {
+    return {
+        type: SET_MY_DEMANDE,
+        myDemande: demandes
     }
 }
 
@@ -104,10 +112,10 @@ export function addStatusUserJoin(body) {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.post("http://192.168.1.20:3000/demande/addStatusUserJoin", body)
+        Axios.post("http://192.168.0.89:3000/demande/addStatusUserJoin", body)
             .then(function (response) {
                 // handle success
-                Axios.post("http://192.168.1.20:3000/demande/getDemandeWithFilter", { "_id": idDemande })
+                Axios.post("http://192.168.0.89:3000/demande/getDemandeWithFilter", { "_id": idDemande })
                     .then(function (response) {
                         // handle success
                         dispatch(SetDemandeWithUserJoin(response.data[0]))
@@ -130,7 +138,7 @@ export function getAssociation(filter) {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.get(`http://192.168.1.20:3000/user/getAssociation/${filter}`)
+        Axios.get(`http://192.168.0.89:3000/user/getAssociation/${filter}`)
             .then(function (response) {
                 // handle success
                 dispatch(SetAssociationList(response.data))
@@ -148,7 +156,7 @@ export function AddUserJoin(body) {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.post("http://192.168.1.20:3000/demande/userJoin", body)
+        Axios.post("http://192.168.0.89:3000/demande/userJoin", body)
             .then(function (response) {
                 // handle success
                 dispatch(UserJoinIsSuccess(true))
@@ -168,10 +176,30 @@ export function GetAllUserJoin(body) {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.post("http://192.168.1.20:3000/demande/getDemandeWithFilter", body)
+        Axios.post("http://192.168.0.89:3000/demande/getDemandeWithFilter", body)
             .then(function (response) {
                 // handle success
                 dispatch(SetDemandeWithUserJoin(response.data[0]))
+                dispatch(IsLoading(false))
+            })
+            .catch(function (error) {
+                // handle error
+                console.warn("error", error);
+                dispatch(IsLoading(false))
+            })
+    }
+}
+
+export function GetAllDemande() {
+    return (dispatch) => {
+        dispatch(IsLoading(true))
+        /**
+         * rederige to Home if API return error that is a problem
+         */
+        Axios.post("http://192.168.0.89:3000/demande/getDemandeWithFilter", {})
+            .then(function (response) {
+                // handle success
+                dispatch(SetMyDemande(response.data))
                 dispatch(IsLoading(false))
             })
             .catch(function (error) {
@@ -188,7 +216,7 @@ export function GetAllDemandeWithFilter(body) {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.post("http://192.168.1.20:3000/demande/getDemandeWithFilter", body)
+        Axios.post("http://192.168.0.89:3000/demande/getDemandeWithFilter", body)
             .then(function (response) {
                 // handle success
                 dispatch(DemandeFilter(body))
@@ -211,7 +239,7 @@ export function AddDemande(body) {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.post("http://192.168.1.20:3000/demande/addDemande", body)
+        Axios.post("http://192.168.0.89:3000/demande/addDemande", body)
             .then(function (response) {
                 // handle success
                 dispatch(AddNewDemande(body))
@@ -232,7 +260,7 @@ export function GetAllReponse(filter) {
     return (dispatch) => {
         dispatch(IsLoading(true))
 
-        Axios.post("http://192.168.1.20:3000/reponse/getAllReponseWithFilter", filter)
+        Axios.post("http://192.168.0.89:3000/reponse/getAllReponseWithFilter", filter)
             .then(function (response) {
                 // handle success
                 dispatch(SetAllReponse(response.data))
@@ -256,7 +284,7 @@ export function AddReponse(data) {
     return (dispatch) => {
         dispatch(IsLoading(true))
 
-        Axios.post("http://192.168.1.20:3000/reponse/addReponse", body)
+        Axios.post("http://192.168.0.89:3000/reponse/addReponse", body)
             .then(function (response) {
                 // handle success
                 dispatch(SaveNewReponse(data))

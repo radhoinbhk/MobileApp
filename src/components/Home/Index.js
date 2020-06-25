@@ -17,6 +17,7 @@ export default function Home(props) {
   const [personneDecesVisibel, setPersonneDecesVisibel] = useState(true)
   const [refreshing, setRefreshing] = useState(false);
   const screenWidth = Math.round(Dimensions.get('window').width);
+  const screenHeight = Math.round(Dimensions.get('window').height);
   const isLoading = useSelector((state) => state.HomeReducer.isLoading)
   const saveCasConfirmes = useSelector((state) => state.HomeReducer.saveCasConfirmes)
   const saveNombreDeces = useSelector((state) => state.HomeReducer.saveNombreDeces)
@@ -48,58 +49,62 @@ export default function Home(props) {
   return (
     <View>
       <Header navigation={props.navigation} />
-      {isLoading ?
-        <Loader />
-        :
-        <ScrollView refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
-          <View style={{ alignItems: "center", marginTop: 30, flexDirection: "row", justifyContent: "center" }}>
-            <Card style={{ width: "30%", marginRight: 10, backgroundColor: "rgb(0, 175, 128)" }}>
-              <TouchableRipple style={{ height: 159, justifyContent: "center" }} onPress={() => setPersonneRetabliesVisibel(!personneRetabliesVisibel)}>
-                <Card.Content style={{ alignItems: "center" }}>
-                  <Avatar.Icon color="rgb(0, 175, 128)" icon="heart-pulse" style={{ backgroundColor: "#fff" }} />
-                  <Title style={{ color: "#fff", fontSize: 16 }}>RÉTABLI</Title>
-                  <Paragraph style={{ color: "#fff" }}>{saveCasRetablis}</Paragraph>
-                </Card.Content>
-              </TouchableRipple>
-            </Card>
-            <Card style={{ backgroundColor: "#E75131", width: "30%", marginRight: 10 }}>
-              <TouchableRipple style={{ height: 159, justifyContent: "center" }} onPress={() => setEvolutionDesCasVisibel(!evolutionDesCasVisibel)}>
-                <Card.Content style={{ alignItems: "center" }}>
-                  <Avatar.Icon color="#E75131" icon="account-alert" style={{ backgroundColor: "#fff" }} />
-                  <Title style={{ color: "#fff", fontSize: 16 }}>CONFIRMÉ</Title>
-                  <Paragraph style={{ color: "#fff" }}>{saveCasConfirmes}</Paragraph>
-                </Card.Content>
-              </TouchableRipple>
-            </Card>
-            <Card style={{ backgroundColor: "rgb(133, 133, 133)", width: "30%" }}>
-              <TouchableRipple style={{ height: 159, justifyContent: "center" }} onPress={() => setPersonneDecesVisibel(!personneDecesVisibel)}>
-                <Card.Content style={{ alignItems: "center" }}>
-                  <Avatar.Icon color="rgb(133, 133, 133)" icon="grave-stone" style={{ backgroundColor: "#fff" }} />
-                  <Title style={{ color: "#fff", fontSize: 16, alignItems: "center" }}>DÉCÈS</Title>
-                  <Paragraph style={{ color: "#fff" }}>{saveNombreDeces}</Paragraph>
-                </Card.Content>
-              </TouchableRipple>
-            </Card>
+
+      <ScrollView contentContainerStyle={{ flex: 1 }}
+        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
+        {isLoading ?
+          <View style={{ height: screenHeight - 200 }}>
+            <Loader />
           </View>
-          <ScrollView horizontal={true}>
-            <View style={{ flex: 1, width: screenWidth * 3, paddingRight: 10, paddingLeft: 10 }}>
-              <LineCharte
-                data={evolutionDesCasVisibel ? evolutionDesCas : []}
-                dataRetablies={personneRetabliesVisibel ? personneRetablies : []}
-                dataDeces={personneDecesVisibel ? personneDeces : []}
-                FormaX='HH'
-                titel={`Evolution des cas`}
-                label="temperature"
-              // color="#f1d7b0"
-              // lineColor="#f39911"
-              />
+          : <View>
+            <View style={{ alignItems: "center", marginTop: 30, flexDirection: "row", justifyContent: "center" }}>
+              <Card style={{ width: "30%", marginRight: 10, backgroundColor: "#86DBD4" }}>
+                <TouchableRipple style={{ height: 159, justifyContent: "center" }} onPress={() => setPersonneRetabliesVisibel(!personneRetabliesVisibel)}>
+                  <Card.Content style={{ alignItems: "center" }}>
+                    <Avatar.Icon color="#86DBD4" icon="heart-pulse" style={{ backgroundColor: "#fff" }} />
+                    <Title style={{ color: "#fff", fontSize: 16 }}>RÉTABLI</Title>
+                    <Paragraph style={{ color: "#fff" }}>{saveCasRetablis}</Paragraph>
+                  </Card.Content>
+                </TouchableRipple>
+              </Card>
+              <Card style={{ backgroundColor: "rgb(227, 108, 141)", width: "30%", marginRight: 10 }}>
+                <TouchableRipple style={{ height: 159, justifyContent: "center" }} onPress={() => setEvolutionDesCasVisibel(!evolutionDesCasVisibel)}>
+                  <Card.Content style={{ alignItems: "center" }}>
+                    <Avatar.Icon color="rgb(227, 108, 141)" icon="account-alert" style={{ backgroundColor: "#fff" }} />
+                    <Title style={{ color: "#fff", fontSize: 16 }}>CONFIRMÉ</Title>
+                    <Paragraph style={{ color: "#fff" }}>{saveCasConfirmes}</Paragraph>
+                  </Card.Content>
+                </TouchableRipple>
+              </Card>
+              <Card style={{ backgroundColor: "#F6D37B", width: "30%" }}>
+                <TouchableRipple style={{ height: 159, justifyContent: "center" }} onPress={() => setPersonneDecesVisibel(!personneDecesVisibel)}>
+                  <Card.Content style={{ alignItems: "center" }}>
+                    <Avatar.Icon color="#F6D37B" icon="grave-stone" style={{ backgroundColor: "#fff" }} />
+                    <Title style={{ color: "#fff", fontSize: 16, alignItems: "center" }}>DÉCÈS</Title>
+                    <Paragraph style={{ color: "#fff" }}>{saveNombreDeces}</Paragraph>
+                  </Card.Content>
+                </TouchableRipple>
+              </Card>
             </View>
-          </ScrollView>
-          <View style={{ flex: 1, width: screenWidth, paddingRight: 10, paddingLeft: 10 }}>
-            <BarChartScreen data={statistiqueParGouvernorat} />
-          </View>
-        </ScrollView>}
+            <ScrollView horizontal={true}>
+              <View style={{ flex: 1, width: screenWidth * 3, paddingRight: 10, paddingLeft: 10 }}>
+                <LineCharte
+                  data={evolutionDesCasVisibel ? evolutionDesCas : []}
+                  dataRetablies={personneRetabliesVisibel ? personneRetablies : []}
+                  dataDeces={personneDecesVisibel ? personneDeces : []}
+                  FormaX='HH'
+                  titel={`Evolution des cas`}
+                  label="temperature"
+                // color="#f1d7b0"
+                // lineColor="#f39911"
+                />
+              </View>
+            </ScrollView>
+            <View style={{ flex: 1, width: screenWidth, paddingRight: 10, paddingLeft: 10 }}>
+              <BarChartScreen data={statistiqueParGouvernorat} />
+            </View>
+          </View>}
+      </ScrollView>
     </View>
   );
 }
