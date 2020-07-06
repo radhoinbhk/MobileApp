@@ -42,7 +42,7 @@ export function SetUpdate(isSignedIn, userToken, body) {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.post("http://192.168.0.89:3000/user/updateUser", body)
+        Axios.post("http://192.168.20.126:3000/user/updateUser", body)
             .then(function (response) {
                 // handle success
                 dispatch(UpdateIsSuccess(true))
@@ -53,7 +53,7 @@ export function SetUpdate(isSignedIn, userToken, body) {
                 console.warn("error1", error);
                 dispatch(UpdateIsLoading(false))
             }).then(
-                Axios.post("http://192.168.0.89:3000/user/getUserWithFilter", { "CIN": body.CIN })
+                Axios.post("http://192.168.20.126:3000/user/getUserWithFilter", { "CIN": body.CIN })
                     .then(function (res) {
                         const userData = {
                             "success": isSignedIn,

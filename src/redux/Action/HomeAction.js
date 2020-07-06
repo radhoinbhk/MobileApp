@@ -202,7 +202,7 @@ export function Signin(CIN, password) {
             "CIN": CIN,
             "Password": password
         }
-        Axios.post("http://192.168.0.89:3000/user/signin", body)
+        Axios.post("http://192.168.20.126:3000/user/signin", body)
             .then(function (response) {
                 let resData = response.data
                 // handle success
@@ -220,6 +220,7 @@ export function Signin(CIN, password) {
 }
 
 export function Signup(body) {
+    console.log("body",body);
     return (dispatch) => {
         dispatch(SignupIsSuccess(false))
         dispatch(SignupIsError(false))
@@ -227,7 +228,7 @@ export function Signup(body) {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.post("http://192.168.0.89:3000/user/signup", body)
+        Axios.post("http://192.168.20.126:3000/user/signup", body)
             .then(function (response) {
                 // handle success
                 dispatch(SignupIsSuccess(true))

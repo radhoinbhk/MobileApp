@@ -57,7 +57,7 @@ function MainNavigator(props) {
             ) : (
                     <>
                         < Stack.Navigator headerMode="none" >
-                            <Stack.Screen name="Home" component={Home} />
+                            <Stack.Screen name="Accueil" component={Home} />
                             <Stack.Screen name="Login" component={Login} />
                             <Stack.Screen name="Signup" component={Signup} />
                             <Stack.Screen name="SignupForm" component={SignupForm} />

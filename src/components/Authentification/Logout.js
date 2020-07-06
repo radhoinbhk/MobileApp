@@ -13,7 +13,7 @@ export default function Logout(props) {
     const removeItemValue = async (key) => {
         try {
             await AsyncStorage.removeItem(key);
-            props.navigation.push('Home')
+            props.navigation.push('Accueil')
             return true;
         }
         catch (exception) {

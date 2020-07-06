@@ -49,7 +49,6 @@ export default function Home(props) {
   return (
     <View>
       <Header navigation={props.navigation} />
-
       <ScrollView contentContainerStyle={{ flex: 1 }}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
         {isLoading ?

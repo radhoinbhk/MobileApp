@@ -64,6 +64,7 @@ export default function Profile(props) {
                         <Avatar.Icon size={90} icon="account" color="#fff" style={{ backgroundColor: "rgba(41, 182, 246, 0.6)" }} />
                         <TextInput
                             style={{ width: 300, marginBottom: 30, marginTop: 30 }}
+                            theme={{ colors: {primary: "rgba(41, 182, 246, 1)"} }}
                             label='Nom'
                             value={nom}
                             mode='outlined'
@@ -71,6 +72,7 @@ export default function Profile(props) {
                         />
                         <TextInput
                             style={{ width: 300, marginBottom: 30 }}
+                            theme={{ colors: {primary: "rgba(41, 182, 246, 1)"} }}
                             label='Prenom'
                             value={prenom}
                             mode='outlined'
@@ -78,6 +80,7 @@ export default function Profile(props) {
                         />
                         <TextInput
                             style={{ width: 300, marginBottom: 30 }}
+                            theme={{ colors: {primary: "rgba(41, 182, 246, 1)"} }}
                             keyboardType="numeric"
                             label='CIN'
                             value={cin}
@@ -92,6 +95,7 @@ export default function Profile(props) {
                         />
                         <TextInput
                             style={{ width: 300, marginBottom: 30 }}
+                            theme={{ colors: {primary: "rgba(41, 182, 246, 1)"} }}
                             keyboardType="email-address"
                             label='Email'
                             value={email}
@@ -100,6 +104,7 @@ export default function Profile(props) {
                         />
                         <TextInput
                             autoCompleteType="password"
+                            theme={{ colors: {primary: "rgba(41, 182, 246, 1)"} }}
                             secureTextEntry={true}
                             style={{ width: 300, marginBottom: 30 }}
                             label='Mot de passe'
@@ -109,6 +114,7 @@ export default function Profile(props) {
                         />
                         <TextInput
                             style={{ width: 300, marginBottom: 30 }}
+                            theme={{ colors: {primary: "rgba(41, 182, 246, 1)"} }}
                             autoCompleteType="password"
                             secureTextEntry={true}
                             label='Confirmation du mot de passe'
@@ -118,6 +124,7 @@ export default function Profile(props) {
                         />
                         <TextInput
                             keyboardType="phone-pad"
+                            theme={{ colors: {primary: "rgba(41, 182, 246, 1)"} }}
                             style={{ width: 300, marginBottom: 30 }}
                             label='Téléphone mobile'
                             value={phoneNumber}
@@ -158,6 +165,7 @@ export default function Profile(props) {
                         </View>
                         <TextInput
                             style={{ width: 300, marginBottom: 30 }}
+                            theme={{ colors: {primary: "rgba(41, 182, 246, 1)"} }}
                             label='Adresse'
                             value={adresse}
                             mode='outlined'
@@ -165,6 +173,7 @@ export default function Profile(props) {
                         />
                         <TextInput
                             style={{ width: 300, marginBottom: 30 }}
+                            theme={{ colors: {primary: "rgba(41, 182, 246, 1)"} }}
                             keyboardType="numeric"
                             label='Code Postal'
                             value={codePostal}
@@ -177,7 +186,7 @@ export default function Profile(props) {
                             }
                             onChangeText={(value) => setCodePostal(value)}
                         />
-                        <Button color="rgba(41, 182, 246, 1)" labelStyle={{color:"#fff"}} style={{ marginBottom: 50 }} icon="content-save-edit" mode="contained" onPress={() => saveUpdate()}>
+                        <Button dark={true} color="rgba(41, 182, 246, 1)" labelStyle={{ color: "#fff" }} style={{ marginBottom: 50 }} icon="content-save-edit" mode="contained" onPress={() => saveUpdate()}>
                             sauvegarder
                         </Button>
                     </View>

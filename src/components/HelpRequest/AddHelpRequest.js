@@ -42,7 +42,7 @@ export default function AddHelpRequest(props) {
             setGouvernoratValue()
             setDelegationValue()
             setAdresse()
-            props.navigation.navigate("mes demandes")
+            props.navigation.navigate("Mes demandes")
         }
     }, [addDemandeIsSuccess])
 
@@ -146,9 +146,9 @@ export default function AddHelpRequest(props) {
                         theme={{ colors: { primary: 'rgba(41, 182, 246, 1)'}}}
                         onChangeText={value => setAdresse(value)}
                     />
-                    <Button color="rgba(41, 182, 246, 1)" style={{ marginBottom: 50 }} labelStyle={{color:"#fff"}} icon="content-save" mode="contained" onPress={() => Sinscrire()}>
+                    <Button dark={true} color="rgba(41, 182, 246, 1)" style={{ marginBottom: 50 }} labelStyle={{color:"#fff"}} icon="content-save" mode="contained" onPress={() => Sinscrire()}>
                         Enregistrer la demande
-                </Button>
+                    </Button>
                 </View>}
             {addDemandeIsError && <ShowSnackbarError message={"Il y a un problème veuillez essayer un autre fois"} />}
             {addDemandeIsSuccess && <ShowSnackbarSuccess message={"La demande est créée avec succès"} />}

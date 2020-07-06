@@ -34,7 +34,7 @@ function DrawerNavigator(props) {
 
     return (
         <Drawer.Navigator initialRouteName="Home" drawerContent={props => <CustomDrawerContent {...props} />}>
-            <Drawer.Screen name="Home" component={Home} />
+            <Drawer.Screen name="Accueil" component={Home} />
             <Drawer.Screen name="Ajouter demande d'aide" component={AddHelpRequest} />
             <Drawer.Screen name="Liste des demandes d'aide" component={HelpRequestList} />
             <Drawer.Screen name="Mes demandes" component={MyHelpRequestList} />

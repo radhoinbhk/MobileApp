@@ -86,7 +86,7 @@ export default function HelpRequestDetails(props) {
                             <View style={{ alignItems: "center", marginBottom: 20 }}>
                                 <Text style={{ position: "absolute", top: 0, left: "55%", zIndex: 1, backgroundColor: "rgb(227, 108, 141)", color: "#fff", paddingLeft: 6, paddingRight: 6, borderRadius: 50 }}>{sumUserJoin}</Text>
                                 <Avatar.Icon size={70} icon="bullhorn-outline" color="#fff" style={{backgroundColor:"rgba(41, 182, 246, 1)"}}/>
-                                <Title>{demande.Titre}</Title>
+                                <Title style={{textAlign:"center"}}>{demande.Titre}</Title>
                                 <View style={{ flexDirection: "row", alignItems: "center" }}>
                                     <Avatar.Icon size={30} icon="map-marker" style={{ backgroundColor: "#fff" }} />
                                     <Text style={{ color: "rgba(0,0,0,.54)" }}>{getState(demande.State)} {getDelegation(demande.Delegation)} {demande.Adresse}</Text>
@@ -116,13 +116,13 @@ export default function HelpRequestDetails(props) {
                                     : <Text style={{ marginTop: 20, borderColor: "rgba(41, 182, 246, 1)", color: "rgba(41, 182, 246, 1)", borderWidth: 1, textAlign: "center", padding: 5, width: 150, borderRadius: 20, marginLeft: "auto", marginRight: "auto" }}>EN COURS</Text>}
                             </View>
                             {!userJoinIsSuccess && !myHelpRequest && <View style={{ width: "100%", alignItems: "center" }}>
-                                <Button icon="account-multiple-plus" color="rgba(41, 182, 246, 1)" style={{ width: 200 }} mode="contained" onPress={() => OnPreesRejoindre()}>
+                                <Button dark={true} icon="account-multiple-plus" color="rgba(41, 182, 246, 1)" style={{ width: 200 }} mode="contained" onPress={() => OnPreesRejoindre()}>
                                     Rejoindre
                                 </Button>
                             </View>}
                             {myHelpRequest && <View style={{ alignItems: "center" }}>
-                                <Button icon="account-group" color="rgba(41, 182, 246, 1)" labelStyle={{color:"#fff"}} mode="contained" onPress={() => props.navigation.navigate("PersonneParticipant", { "idDemande": demande._id })}>
-                                    Les personnes participantes
+                                <Button dark={true} color="rgba(41, 182, 246, 1)" icon="account-group" color="rgba(41, 182, 246, 1)" labelStyle={{color:"#fff"}} mode="contained" onPress={() => props.navigation.navigate("PersonneParticipant", { "idDemande": demande._id })}>
+                                    Les personnes participants
                                 </Button>
                             </View>}
                         </Card>

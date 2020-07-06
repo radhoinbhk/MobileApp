@@ -17,7 +17,7 @@ export default function Signup(props) {
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}
             keyboardShouldPersistTaps='handled'>
             <View style={{ width: "100%", alignItems: "flex-start", paddingTop: 20, paddingLeft: 10 }}>
-                <Button icon="arrow-left-thick" mode="text"
+                <Button color="rgba(41, 182, 246, 1)" icon="arrow-left-thick" mode="text"
                     onPress={() => props.navigation.goBack()}>
                     Retour
                 </Button>
@@ -31,7 +31,7 @@ export default function Signup(props) {
                         <Paragraph style={{ textAlign: "center" }}>Je suis citoyen recherche d'aide</Paragraph>
                     </Card.Content>
                     <Card.Actions style={{ alignItems: "center", justifyContent: "center", height: "50%" }}>
-                        <Button style={{ width: 160 }} icon="check-circle" mode="contained"
+                        <Button dark={true} color="rgba(41, 182, 246, 1)" style={{ width: 160 }} icon="check-circle" mode="contained"
                             onPress={() => props.navigation.navigate("SignupForm", {
                                 typeUser: "citoyen"
                             })}>Choisir</Button>
@@ -43,7 +43,7 @@ export default function Signup(props) {
                         <Paragraph style={{ textAlign: "center" }}>Je suis une structure publique ou association</Paragraph>
                     </Card.Content>
                     <Card.Actions style={{ alignItems: "center", justifyContent: "center", height: "50%" }}>
-                        <Button style={{ width: 160 }} icon="check-circle" mode="contained"
+                        <Button dark={true} color="rgba(41, 182, 246, 1)" style={{ width: 160 }} icon="check-circle" mode="contained"
                             onPress={() => props.navigation.navigate("SignupForm", {
                                 typeUser: "organismes"
                             })}

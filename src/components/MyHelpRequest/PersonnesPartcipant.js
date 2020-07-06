@@ -74,14 +74,14 @@ export default function PersonnesPartcipant(props) {
                             <Card key={index} style={{ backgroundColor: "#fff", marginLeft: 10, marginRight: 10, marginTop: 10 }}>
                                 <View style={{ padding: 20 }}>
                                     <View style={{ flexDirection: "row", alignItems: "center" }}>
-                                        <Avatar.Icon size={40} icon="account" />
+                                        <Avatar.Icon size={40} icon="account" color="#fff" style={{backgroundColor:"rgba(41, 182, 246, 1)"}}/>
                                         <View style={{ width: "70%", marginLeft: 20 }}>
                                             <Subheading>{user.Nom} {user.Prenom}</Subheading>
                                             <Caption>{user.Nmobile}</Caption>
                                         </View>
                                         <IconButton
                                             icon="account-badge-horizontal-outline"
-                                            color="#6200ee"
+                                            color="rgba(41, 182, 246, 1)"
                                             size={30}
                                             onPress={() => visibelDialog(user)}
                                         />

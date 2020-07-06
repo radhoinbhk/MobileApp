@@ -11,7 +11,7 @@ export default function Header(props) {
         <View style={{ width: "100%" }}>
             {!isSignedIn ?
                 <View style={{ paddingTop: 30, paddingLeft: 10 }}>
-                    <Button mode="contained" style={{ width: 170 }} onPress={() => props.navigation.navigate('Login')}>
+                    <Button dark={true} color="rgba(41, 182, 246, 1)" mode="contained" style={{ width: 170 }} onPress={() => props.navigation.navigate('Login')}>
                         connecter
                     </Button>
                 </View>

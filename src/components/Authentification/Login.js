@@ -3,7 +3,7 @@ import { View, ScrollView, Text } from 'react-native';
 import { TextInput, Button, IconButton } from "react-native-paper";
 import TextInputMask from "react-native-text-input-mask";
 import { useDispatch, useSelector } from "react-redux";
-import { Signin } from '../../redux/Action/HomeAction'
+import { Signin, SignupIsSuccess, SignupIsError } from '../../redux/Action/HomeAction'
 import Loader from "../Common/Loader";
 import { ShowSnackbarSuccess, ShowSnackbarError } from '../Common/Snackbar'
 
@@ -21,8 +21,10 @@ function Login(props) {
     }
 
     useEffect(() => {
+        dispatch(SignupIsSuccess(false))
+        dispatch(SignupIsError(false))
         if (isSignedIn) {
-            props.navigation.push('Home')
+            props.navigation.push('Accueil')
         }
     }, [isSignedIn])
 
@@ -31,10 +33,10 @@ function Login(props) {
             {isLoading ?
                 <Loader />
                 : <View>
-                    <Button icon="arrow-left-thick" mode="text"
+                    <Button color="rgba(41, 182, 246, 1)" icon="arrow-left-thick" mode="text"
                         onPress={() => props.navigation.goBack()}
                         style={{ marginLeft: 30, marginTop: 30, position: "absolute" }}>
-                        Home
+                        Accueil
                     </Button>
                     {/* <IconButton
                 icon="arrow-left-thick"
@@ -45,7 +47,8 @@ function Login(props) {
             /> */}
                     <View style={{ justifyContent: "center", alignItems: "center", marginTop: 30, height: "85%" }}>
                         <TextInput
-                            style={{ width: 300, marginBottom: 30 }}
+                            style={{ width: 300, marginBottom: 30, borderColor:"rgba(41, 182, 246, 1)" }}
+                            theme={{ colors: {primary: "rgba(41, 182, 246, 1)"} }}
                             keyboardType="numeric"
                             label='CIN'
                             value={cin}
@@ -60,6 +63,7 @@ function Login(props) {
                         />
                         <TextInput
                             style={{ width: 300, marginBottom: 20 }}
+                            theme={{ colors: {primary: "rgba(41, 182, 246, 1)"} }}
                             label='Mot de passe'
                             autoCompleteType="password"
                             secureTextEntry={true}
@@ -70,12 +74,12 @@ function Login(props) {
                         <View style={{ width: 300, alignItems: "flex-end", marginBottom: 40 }}>
                             <Text>Mot de passe perdu ?</Text>
                         </View>
-                        <Button style={{ width: 250 }} icon="login" mode="contained" onPress={() => authentification()}>
+                        <Button dark={true} color="rgba(41, 182, 246, 1)" style={{ width: 250 }} icon="login" mode="contained" onPress={() => authentification()}>
                             S'identifier
                         </Button>
                     </View>
                     <View style={{ alignItems: "center" }}>
-                        <Button style={{ width: 250 }} icon="account-plus" mode="outlined" onPress={() => props.navigation.navigate("Signup")}>
+                        <Button color="rgba(41, 182, 246, 1)" style={{ width: 250, borderColor: "rgba(41, 182, 246, 1)" }} icon="account-plus" mode="outlined" onPress={() => props.navigation.navigate("Signup")}>
                             S'inscrire
                         </Button>
                     </View>
