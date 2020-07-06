@@ -6,8 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetAllUserJoin } from "../../redux/Action/HelpRequestAction";
 import Loader from "../Common/Loader";
 import Tunisia from '../Common/Tunisia.json'
-import FilterHelpRequest from "./FilterHelpRequest";
-import UserDetails from "./UserDetails";
+import UserDetails from "../Common/UserDetails";
 
 export default function PersonnesPartcipant(props) {
     const idDemande = props.route.params.idDemande
@@ -46,11 +45,9 @@ export default function PersonnesPartcipant(props) {
         setUserDetail(user)
     }
 
-    // const AcceptUserJoin = () => {
-    // }
 
     const isExist = (idUserJoin) => {
-        const result
+        let result;
         demandeWithUserJoin.userJoinWithStatus.map((value) => {
             if (value.idUserJoin == idUserJoin) {
                 result = value
@@ -77,14 +74,14 @@ export default function PersonnesPartcipant(props) {
                             <Card key={index} style={{ backgroundColor: "#fff", marginLeft: 10, marginRight: 10, marginTop: 10 }}>
                                 <View style={{ padding: 20 }}>
                                     <View style={{ flexDirection: "row", alignItems: "center" }}>
-                                        <Avatar.Icon size={40} icon="account" />
+                                        <Avatar.Icon size={40} icon="account" color="#fff" style={{backgroundColor:"rgba(41, 182, 246, 1)"}}/>
                                         <View style={{ width: "70%", marginLeft: 20 }}>
                                             <Subheading>{user.Nom} {user.Prenom}</Subheading>
                                             <Caption>{user.Nmobile}</Caption>
                                         </View>
                                         <IconButton
                                             icon="account-badge-horizontal-outline"
-                                            color="#6200ee"
+                                            color="rgba(41, 182, 246, 1)"
                                             size={30}
                                             onPress={() => visibelDialog(user)}
                                         />

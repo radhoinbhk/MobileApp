@@ -3,23 +3,19 @@ import { View, ScrollView, Text, RefreshControl, SafeAreaView } from 'react-nati
 import Header from "../Common/Header";
 import { Card, Avatar, IconButton, Subheading, Caption } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
-import { GetAllDemandeWithFilter } from "../../redux/Action/HelpRequestAction";
+import { GetAllDemande } from "../../redux/Action/HelpRequestAction";
 import Loader from "../Common/Loader";
 import Tunisia from '../Common/Tunisia.json'
-import FilterHelpRequest from "./FilterHelpRequest";
 
 export default function HelpRequestList(props) {
     const dispatch = useDispatch()
-
     const [refreshing, setRefreshing] = useState(false);
-    const [filterHelpVisible, setFilterHelpVisible] = useState(false);
     const isLoading = useSelector((state) => state.HelpRequestReducer.isLoading);
-    const allDemande = useSelector((state) => state.HelpRequestReducer.allDemande);
-    const demandeFilter = useSelector((state) => state.HelpRequestReducer.demandeFilter);
+    const myDemande = useSelector((state) => state.HelpRequestReducer.myDemande);
     const userData = useSelector((state) => state.HomeReducer.userData);
 
     useEffect(() => {
-        dispatch(GetAllDemandeWithFilter(demandeFilter))
+        dispatch(GetAllDemande())
     }, [])
 
     useEffect(() => {
@@ -42,12 +38,12 @@ export default function HelpRequestList(props) {
 
     const onRefresh = () => {
         setRefreshing(true);
-        dispatch(GetAllDemandeWithFilter(demandeFilter))
+        dispatch(GetAllDemande())
     }
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            {!filterHelpVisible && <Header navigation={props.navigation} screenTitel="Mes demandes" onPressFilter={() => setFilterHelpVisible(true)} />}
+            <Header navigation={props.navigation} screenTitel="Mes demandes" />
             <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 30 }}
                 refreshControl={
                     <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
@@ -55,19 +51,19 @@ export default function HelpRequestList(props) {
                 {isLoading ?
                     <Loader />
                     : <View>
-                        {allDemande.map((demande, index) =>
+                        {myDemande.map((demande, index) =>
                             demande.idUser == userData._id &&
                             <Card key={index} style={{ backgroundColor: "#fff", marginLeft: 10, marginRight: 10, marginTop: 10 }}>
                                 <View style={{ padding: 20 }}>
                                     <View style={{ flexDirection: "row", alignItems: "center" }}>
-                                        <Avatar.Icon size={40} icon="bullhorn-outline" />
+                                        <Avatar.Icon size={40} icon="bullhorn-outline" color="#fff" style={{backgroundColor:"rgba(41, 182, 246, 1)"}} />
                                         <View style={{ width: "70%", marginLeft: 20 }}>
                                             <Subheading>{demande.Titre}</Subheading>
                                             <Caption>{demande.Description}</Caption>
                                         </View>
                                         <IconButton
                                             icon="clipboard-text-play-outline"
-                                            color="#6200ee"
+                                            color="rgba(41, 182, 246, 1)"
                                             size={30}
                                             onPress={() => props.navigation.navigate("HelpRequestDetails", { "demande": demande, "myHelpRequest": true })}
                                         />
@@ -81,7 +77,6 @@ export default function HelpRequestList(props) {
                         )}
                     </View>}
             </ScrollView >
-            {filterHelpVisible && !isLoading && <FilterHelpRequest filterHelpVisible={filterHelpVisible} hideDialog={() => setFilterHelpVisible(false)} />}
         </SafeAreaView>
     );
 }

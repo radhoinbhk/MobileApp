@@ -21,7 +21,7 @@ export default function UserDetails(props) {
             onDismiss={() => props.hideDialog()}>
             {props.userDetail &&
                 <View style={{ alignItems: "center" }}>
-                    <Avatar.Text style={{ position: "absolute", top: -70 }} size={80} label={props.userDetail.Nom[0]} />
+                    <Avatar.Text style={{ position: "absolute", top: -70, backgroundColor: "rgba(41, 182, 246, 1)" }} size={80} label={props.userDetail.Nom[0]} color="#fff" />
                     <Title style={{ marginTop: 30 }}>{props.userDetail.Nom} {props.userDetail.Prenom}</Title>
                     <View style={{ flexDirection: "row", alignItems: "center" }}>
                         <Avatar.Icon size={30} icon="map-marker" style={{ backgroundColor: "#fff" }} />
@@ -39,21 +39,21 @@ export default function UserDetails(props) {
                         <IconButton
                             icon="phone-outgoing"
                             color="#fff"
-                            style={{ backgroundColor: "#38EB49", marginRight: 30 }}
+                            style={{ backgroundColor: "#86DBD4", marginRight: 30 }}
                             size={30}
                             onPress={() => Linking.openURL(`tel:${props.userDetail.Nmobile}`)}
                         />
                         <IconButton
                             icon="window-close"
                             color="#fff"
-                            style={{ backgroundColor: "#FF1001", marginRight: 30,marginTop:90 }}
+                            style={{ backgroundColor: "rgb(227, 108, 141)", marginRight: 30, marginTop: 90 }}
                             size={30}
                             onPress={() => props.hideDialog()}
                         />
                         <IconButton
                             icon="android-messages"
                             color="#fff"
-                            style={{ backgroundColor: "#FF6E09" }}
+                            style={{ backgroundColor: "#F6D37B" }}
                             size={30}
                             onPress={() => console.log('Pressed')}
                         />

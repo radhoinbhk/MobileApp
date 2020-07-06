@@ -6,12 +6,12 @@ import Home from '../components/Home/Index';
 import Login from '../components/Authentification/Login';
 import SignupForm from '../components/Authentification/Signup/SignupForm';
 import Signup from '../components/Authentification/Signup/Index';
-import HelpRequestDetails from '../components/HelpRequest/HelpRequestDetails';
+import HelpRequestDetails from '../components/Common/HelpRequestDetails';
 import DrawerNavigator from './DrawerNavigator';
 import { SetUserData, StackIsLoading } from '../redux/Action/HomeAction';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem, } from '@react-navigation/drawer';
 import Loader from '../components/Common/Loader';
-import PersonneParticipant from '../components/HelpRequest/PersonnesPartcipant';
+import PersonneParticipant from '../components/MyHelpRequest/PersonnesPartcipant';
 import { Avatar, Subheading } from 'react-native-paper';
 import { View, Text } from 'react-native';
 const Stack = createStackNavigator();
@@ -57,7 +57,7 @@ function MainNavigator(props) {
             ) : (
                     <>
                         < Stack.Navigator headerMode="none" >
-                            <Stack.Screen name="Home" component={Home} />
+                            <Stack.Screen name="Accueil" component={Home} />
                             <Stack.Screen name="Login" component={Login} />
                             <Stack.Screen name="Signup" component={Signup} />
                             <Stack.Screen name="SignupForm" component={SignupForm} />

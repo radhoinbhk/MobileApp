@@ -60,14 +60,14 @@ export default function HelpRequestList(props) {
                             <Card key={index} style={{ backgroundColor: "#fff", marginLeft: 10, marginRight: 10, marginTop: 10 }}>
                                 <View style={{ padding: 20 }}>
                                     <View style={{ flexDirection: "row", alignItems: "center" }}>
-                                        <Avatar.Icon size={40} icon="bullhorn-outline" />
+                                        <Avatar.Icon size={40} icon="bullhorn-outline" color="#fff" style={{backgroundColor:"rgba(41, 182, 246, 1)"}}/>
                                         <View style={{ width: "70%", marginLeft: 20 }}>
                                             <Subheading>{demande.Titre}</Subheading>
                                             <Caption>{demande.Description}</Caption>
                                         </View>
                                         <IconButton
                                             icon="clipboard-text-play-outline"
-                                            color="#6200ee"
+                                            color="rgba(41, 182, 246, 1)"
                                             size={30}
                                             onPress={() => props.navigation.navigate("HelpRequestDetails", { "demande": demande, "myHelpRequest": false })}
                                         />

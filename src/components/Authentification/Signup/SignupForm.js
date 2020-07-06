@@ -23,9 +23,9 @@ export default function SignupForm(props) {
     const [adresse, setAdresse] = useState()
     const [codePostal, setCodePostal] = useState()
     const [delegationList, setDelegationList] = useState();
-    const [dateNaissance, setDateNaissance] = useState();
+    const [dateNaissance, setDateNaissance] = useState("");
     const [showDatePicker, setShowDatePicker] = useState(false);
-    const [infecté, setInfecté] = useState(false);
+    // const [infecté, setInfecté] = useState(false);
     const [role, setRole] = useState("");
     const typeUser = props.route.params.typeUser;
     const signupIsError = useSelector((state) => state.HomeReducer.signupIsError)
@@ -75,7 +75,7 @@ export default function SignupForm(props) {
             "Adresse": adresse,
             "TypeUser": typeUser,
             "DateNaissance": dateNaissance,
-            "Infecté": infecté,
+            // "Infecté": infecté,
             "PosteAutorite": role,
         }
         dispatch(Signup(body))
@@ -88,7 +88,7 @@ export default function SignupForm(props) {
                 <Loader />
                 : <>
                     <View style={{ width: "100%", alignItems: "flex-start", paddingTop: 20, paddingLeft: 10 }}>
-                        <Button icon="arrow-left-thick" mode="text"
+                        <Button color="rgba(41, 182, 246, 1)" icon="arrow-left-thick" mode="text"
                             onPress={() => props.navigation.goBack()}>
                             Retour
                 </Button>
@@ -96,6 +96,7 @@ export default function SignupForm(props) {
                     <View style={{ justifyContent: "center", alignItems: "center", marginTop: 30 }}>
                         <TextInput
                             style={{ width: 300, marginBottom: 30 }}
+                            theme={{ colors: { primary: "rgba(41, 182, 246, 1)" } }}
                             label='Nom'
                             value={nom}
                             mode='outlined'
@@ -103,6 +104,7 @@ export default function SignupForm(props) {
                         />
                         <TextInput
                             style={{ width: 300, marginBottom: 30 }}
+                            theme={{ colors: { primary: "rgba(41, 182, 246, 1)" } }}
                             label='Prenom'
                             value={prenom}
                             mode='outlined'
@@ -110,6 +112,7 @@ export default function SignupForm(props) {
                         />
                         <TextInput
                             style={{ width: 300, marginBottom: 30 }}
+                            theme={{ colors: { primary: "rgba(41, 182, 246, 1)" } }}
                             keyboardType="numeric"
                             label='CIN'
                             value={cin}
@@ -124,6 +127,7 @@ export default function SignupForm(props) {
                         />
                         <TextInput
                             style={{ width: 300, marginBottom: 30 }}
+                            theme={{ colors: { primary: "rgba(41, 182, 246, 1)" } }}
                             keyboardType="email-address"
                             label='Email'
                             value={email}
@@ -132,6 +136,7 @@ export default function SignupForm(props) {
                         />
                         <TextInput
                             autoCompleteType="password"
+                            theme={{ colors: { primary: "rgba(41, 182, 246, 1)" } }}
                             secureTextEntry={true}
                             style={{ width: 300, marginBottom: 30 }}
                             label='Mot de passe'
@@ -141,6 +146,7 @@ export default function SignupForm(props) {
                         />
                         <TextInput
                             style={{ width: 300, marginBottom: 30 }}
+                            theme={{ colors: { primary: "rgba(41, 182, 246, 1)" } }}
                             autoCompleteType="password"
                             secureTextEntry={true}
                             label='Confirmation du mot de passe'
@@ -150,6 +156,7 @@ export default function SignupForm(props) {
                         />
                         <TextInput
                             keyboardType="phone-pad"
+                            theme={{ colors: { primary: "rgba(41, 182, 246, 1)" } }}
                             style={{ width: 300, marginBottom: 30 }}
                             label='Téléphone mobile'
                             value={phoneNumber}
@@ -167,7 +174,7 @@ export default function SignupForm(props) {
                                 mode='dialog'
                                 selectedValue={gouvernoratValue}
                                 style={{ height: 56, width: 300, color: "#7f7f7f" }}
-                                onValueChange={(itemValue, itemIndex) => { setGouvernoratValue(itemValue), console.log("GouvernoratitemValue", itemValue) }}
+                                onValueChange={(itemValue, itemIndex) => { setGouvernoratValue(itemValue) }}
                             >
                                 <Picker.Item label="Choisir le Gouvernorat" />
                                 {Tunisia.map((gouvernorat, index) =>
@@ -190,6 +197,7 @@ export default function SignupForm(props) {
                         </View>
                         <TextInput
                             style={{ width: 300, marginBottom: 30 }}
+                            theme={{ colors: { primary: "rgba(41, 182, 246, 1)" } }}
                             label='Adresse'
                             value={adresse}
                             mode='outlined'
@@ -197,6 +205,7 @@ export default function SignupForm(props) {
                         />
                         <TextInput
                             style={{ width: 300, marginBottom: 30 }}
+                            theme={{ colors: { primary: "rgba(41, 182, 246, 1)" } }}
                             keyboardType="numeric"
                             label='Code Postal'
                             value={codePostal}
@@ -227,29 +236,30 @@ export default function SignupForm(props) {
                                     display="default"
                                     onChange={onchangeDate}
                                 />}
-                                <Text style={{ color: "#7f7f7f", fontSize: 16 }}>Infecté ?</Text>
+                                {/* <Text style={{ color: "#7f7f7f", fontSize: 16 }}>Infecté ?</Text>
                                 <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 50 }}>
                                     <Text style={{ color: "#7f7f7f", fontSize: 16 }}>Oui</Text>
                                     <RadioButton
-                                        color="#6200ee"
+                                        color="rgba(41, 182, 246, 1)"
                                         value="oui"
                                         status={infecté ? 'checked' : 'unchecked'}
                                         onPress={() => setInfecté(!infecté)}
                                     />
                                     <Text style={{ color: "#7f7f7f", fontSize: 16 }}>Non</Text>
                                     <RadioButton
-                                        color="#6200ee"
+                                        color="rgba(41, 182, 246, 1)"
                                         value="non"
                                         status={!infecté ? 'checked' : 'unchecked'}
                                         onPress={() => setInfecté(!infecté)}
                                     />
-                                </View>
+                                </View> */}
                             </View>
                             :
                             <>
                                 <Text style={{ color: "#7f7f7f", fontSize: 16, width: 300, marginBottom: 10 }}>Votre rôle dans  une structure publique ou association :</Text>
                                 <TextInput
                                     style={{ width: 300, marginBottom: 50 }}
+                                    theme={{ colors: { primary: "rgba(41, 182, 246, 1)" } }}
                                     label='rôle'
                                     value={role}
                                     mode='outlined'
@@ -257,12 +267,12 @@ export default function SignupForm(props) {
                                 />
                             </>
                         }
-                        <Button style={{ width: 250, marginBottom: 50 }} icon="account-plus" mode="contained" onPress={() => Sinscrire()}>
+                        <Button dark={true} color="rgba(41, 182, 246, 1)" style={{ width: 250, marginBottom: 50 }} icon="account-plus" mode="contained" onPress={() => Sinscrire()}>
                             S'inscrire
-                </Button>
-                        <Button style={{ width: 250, marginBottom: 30 }} icon="login" mode="outlined" onPress={() => props.navigation.navigate("Login")}>
+                        </Button>
+                        <Button dark={true} color="rgba(41, 182, 246, 1)" style={{ width: 250, borderColor: "rgba(41, 182, 246, 1)", marginBottom: 30 }} icon="login" mode="outlined" onPress={() => props.navigation.navigate("Login")}>
                             S'identifier
-                </Button>
+                        </Button>
                     </View>
                 </>
             }
