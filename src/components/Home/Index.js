@@ -1,220 +1,108 @@
-import React, { useState } from "react";
-import { View, Dimensions, ScrollView, processColor } from 'react-native';
-import { Button, Card, Title, Paragraph, Avatar } from 'react-native-paper';
+import React, { useState, useEffect } from "react";
+import { View, Dimensions, ScrollView, processColor, RefreshControl } from 'react-native';
+import { Button, Card, Title, Paragraph, Avatar, IconButton, TouchableRipple } from 'react-native-paper';
 import { LineChart } from "react-native-chart-kit";
 import FlashMessage, { showMessage } from "react-native-flash-message";
-import LineCharte from "./LineCharte";
+import LineCharte from "../Common/LineCharte";
+import Header from '../Common/Header'
+import Loader from "../Common/Loader";
+import { useSelector, useDispatch } from "react-redux";
+import { getStatistiCovid } from "../../redux/Action/HomeAction";
+import moment from "moment";
+import BarChartScreen from "../Common/BarChartScreen";
 
 export default function Home(props) {
+  const [evolutionDesCasVisibel, setEvolutionDesCasVisibel] = useState(true)
+  const [personneRetabliesVisibel, setPersonneRetabliesVisibel] = useState(true)
+  const [personneDecesVisibel, setPersonneDecesVisibel] = useState(true)
+  const [refreshing, setRefreshing] = useState(false);
   const screenWidth = Math.round(Dimensions.get('window').width);
-  const [marker, setMarker] = useState({ enabled: true, digits: 1, markerColor: processColor("#00b5af"), textColor: processColor('white'), markerFontSize: 14, })
+  const screenHeight = Math.round(Dimensions.get('window').height);
+  const isLoading = useSelector((state) => state.HomeReducer.isLoading)
+  const saveCasConfirmes = useSelector((state) => state.HomeReducer.saveCasConfirmes)
+  const saveNombreDeces = useSelector((state) => state.HomeReducer.saveNombreDeces)
+  const saveCasRetablis = useSelector((state) => state.HomeReducer.saveCasRetablis)
+  const evolutionDesCas = useSelector((state) => state.HomeReducer.evolutionDesCas)
+  const personneRetablies = useSelector((state) => state.HomeReducer.personneRetablies)
+  const personneDeces = useSelector((state) => state.HomeReducer.personneDeces)
+  const statistiqueParGouvernorat = useSelector((state) => state.HomeReducer.statistiqueParGouvernorat)
+  const dispatch = useDispatch()
 
-  const dataChartX = () => {
-    const dataValueX = ["January", "February", "March", "April", "May", "June", "February", "March", "April", "May", "June", "January", "February", "March", "April", "May", "June", "February", "March", "April", "May", "June"]
-    return {
-      valueFormatter: dataValueX,
-      position: 'BOTTOM',
-      granularityEnabled: true,
-      granularity: 1,
-      labelCount: 10,
-      drawGridLines: false,
-      // fontFamily: "HelveticaNeue-Medium",
-    }
+  useEffect(() => {
+    dispatch(getStatistiCovid())
+  }, [])
 
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    dispatch(getStatistiCovid())
+    setRefreshing(false);
   }
 
-  const dataChartY = () => {
-    const dataValueY = [
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100,
-      Math.random() * 100
-    ]
-    return {
-      values: dataValueY,
-      label: 'temperature',
-      config: {
-        mode: "HORIZONTAL_BEZIER",
-        drawValues: false,
-        lineWidth: 2,
-        drawCircles: true,
-        circleColor: processColor("#f39911"),
-        drawCircleHole: false,
-        circleRadius: 2,
-        highlightColor: processColor("#696969"),
-        color: processColor("#f39911"),
-        valueTextSize: 12,
-        drawFilled: true,
-        fillGradient: {
-          colors: [processColor('rgba(255, 255, 255, 0.2)'), processColor("#f1d7b0")],
-          positions: [0, 0.5],
-          angle: 90,
-          orientation: "TOP_BOTTOM"
-        },
-        fillAlpha: 1000,
-      }
-    }
-  }
-
+  // const evolutionArray = () => {
+  //   const array = []
+  //   evolutionDesCas.map(data =>
+  //     array.push({ x: data.attributes.Total_Confirmed, y: moment.unix(data.attributes.Dates / 1000).format('DD/MM/YYYY') })
+  //   )
+  //   return array
+  // }
   return (
     <View>
-      <ScrollView>
-        <View style={{ width: screenWidth, paddingTop: 20, paddingLeft: 30 }}>
-          <Button mode="contained" style={{ width: 170 }} >
-            connecter
-        </Button>
-        </View>
-        <View style={{ alignItems: "center", marginTop: 30, flexDirection: "row", justifyContent: "center" }}>
-          <Card style={{ backgroundColor: "#00C853", width: "30%", marginRight: 10 }}>
-            <Card.Content style={{ alignItems: "center" }}>
-              <Avatar.Icon color="#00C853" icon="account-check" style={{ backgroundColor: "#fff" }} />
-              <Title style={{ color: "#fff", fontSize: 16 }}>RÉTABLI</Title>
-              <Paragraph style={{ color: "#fff" }}>14</Paragraph>
-            </Card.Content>
-          </Card>
-          <Card style={{ backgroundColor: "#EBB121", width: "30%", marginRight: 10 }}>
-            <Card.Content style={{ alignItems: "center" }}>
-              <Avatar.Icon color="#EBB121" icon="account-alert" style={{ backgroundColor: "#fff" }} />
-              <Title style={{ color: "#fff", fontSize: 16 }}>CONFIRMÉ</Title>
-              <Paragraph style={{ color: "#fff" }}>14</Paragraph>
-            </Card.Content>
-          </Card>
-          <Card style={{ backgroundColor: "#FF5252", width: "30%" }}>
-            <Card.Content style={{ alignItems: "center" }}>
-              <Avatar.Icon color="#FF5252" icon="account-remove" style={{ backgroundColor: "#fff" }} />
-              <Title style={{ color: "#fff", fontSize: 16 }}>MORTS</Title>
-              <Paragraph style={{ color: "#fff" }}>14</Paragraph>
-            </Card.Content>
-          </Card>
-        </View>
-        <Card >
-          <Card.Content style={{ alignItems: "center" }}>
-            <ScrollView horizontal={true}>
-              <LineChart
-                onDataPointClick={({ value, getColor }) =>
-                  showMessage({
-                    message: `${value}`,
-                    description: "You selected this value",
-                    backgroundColor: getColor(0.5),
-                    textStyle: { color: "#000" },
-                  })
-                }
-                data={{
-                  labels: ["January", "February", "March", "April", "May", "June", "February", "March", "April", "May", "June", "January", "February", "March", "April", "May", "June", "February", "March", "April", "May", "June"],
-                  datasets: [
-                    {
-                      data: [
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100
-                      ]
-                    }
-                  ]
-                }}
-                width={screenWidth + 700} // from react-native
-                height={220}
-                yAxisLabel="$"
-                yAxisSuffix="k"
-                yAxisInterval={1} // optional, defaults to 1
-                chartConfig={{
-                  backgroundColor: "#6200ee",
-                  backgroundGradientFrom: "#6200ee",
-                  backgroundGradientTo: "#6200ee",
-                  decimalPlaces: 2, // optional, defaults to 2dp
-                  color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                  labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                  style: {
-                    borderRadius: 16
-                  },
-                  propsForDots: {
-                    r: "6",
-                    strokeWidth: "2",
-                    stroke: "#6200ee"
-                  }
-                }}
-                bezier
-                style={{
-                  marginVertical: 8,
-                  borderRadius: 16
-                }}
-              />
-              <FlashMessage duration={1000} />
-            </ScrollView>
-          </Card.Content>
-        </Card>
-        <ScrollView horizontal={true}>
-          <View style={{ flex: 1, width: screenWidth * 2 }}>
-            <LineCharte
-              data={
-                [{ x: 1, y: Math.random() * 100 },
-                { x: 2, y: Math.random() * 100 },
-                { x: 3, y: Math.random() * 100 },
-                { x: 4, y: Math.random() * 100 },
-                { x: 5, y: Math.random() * 100 },
-                { x: 6, y: Math.random() * 100 },
-                { x: 7, y: Math.random() * 100 },
-                { x: 8, y: Math.random() * 100 },
-                { x: 9, y: Math.random() * 100 },
-                { x: 10, y: Math.random() * 100 },
-                { x: 11, y: Math.random() * 100 },
-                { x: 12, y: Math.random() * 100 },
-                { x: 13, y: Math.random() * 100 },
-                { x: 14, y: Math.random() * 100 },
-                { x: 15, y: Math.random() * 100 },
-                { x: 16, y: Math.random() * 100 },
-                { x: 17, y: Math.random() * 100 },
-                { x: 18, y: Math.random() * 100 },
-                { x: 19, y: Math.random() * 100 },
-                { x: 20, y: Math.random() * 100 },
-                { x: 21, y: Math.random() * 100 }
-                ]
-
-              }
-              FormaX='HH'
-              titel={`Temperature(C°)`}
-              label="temperature"
-              color="#f1d7b0"
-              lineColor="#f39911"
-            />
+      <Header navigation={props.navigation} />
+      <ScrollView contentContainerStyle={{ flex: 1 }}
+        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
+        {isLoading ?
+          <View style={{ height: screenHeight - 200 }}>
+            <Loader />
           </View>
-        </ScrollView>
+          : <View>
+            <View style={{ alignItems: "center", marginTop: 30, flexDirection: "row", justifyContent: "center" }}>
+              <Card style={{ width: "30%", marginRight: 10, backgroundColor: "#86DBD4" }}>
+                <TouchableRipple style={{ height: 159, justifyContent: "center" }} onPress={() => setPersonneRetabliesVisibel(!personneRetabliesVisibel)}>
+                  <Card.Content style={{ alignItems: "center" }}>
+                    <Avatar.Icon color="#86DBD4" icon="heart-pulse" style={{ backgroundColor: "#fff" }} />
+                    <Title style={{ color: "#fff", fontSize: 16 }}>RÉTABLI</Title>
+                    <Paragraph style={{ color: "#fff" }}>{saveCasRetablis}</Paragraph>
+                  </Card.Content>
+                </TouchableRipple>
+              </Card>
+              <Card style={{ backgroundColor: "rgb(227, 108, 141)", width: "30%", marginRight: 10 }}>
+                <TouchableRipple style={{ height: 159, justifyContent: "center" }} onPress={() => setEvolutionDesCasVisibel(!evolutionDesCasVisibel)}>
+                  <Card.Content style={{ alignItems: "center" }}>
+                    <Avatar.Icon color="rgb(227, 108, 141)" icon="account-alert" style={{ backgroundColor: "#fff" }} />
+                    <Title style={{ color: "#fff", fontSize: 16 }}>CONFIRMÉ</Title>
+                    <Paragraph style={{ color: "#fff" }}>{saveCasConfirmes}</Paragraph>
+                  </Card.Content>
+                </TouchableRipple>
+              </Card>
+              <Card style={{ backgroundColor: "#F6D37B", width: "30%" }}>
+                <TouchableRipple style={{ height: 159, justifyContent: "center" }} onPress={() => setPersonneDecesVisibel(!personneDecesVisibel)}>
+                  <Card.Content style={{ alignItems: "center" }}>
+                    <Avatar.Icon color="#F6D37B" icon="grave-stone" style={{ backgroundColor: "#fff" }} />
+                    <Title style={{ color: "#fff", fontSize: 16, alignItems: "center" }}>DÉCÈS</Title>
+                    <Paragraph style={{ color: "#fff" }}>{saveNombreDeces}</Paragraph>
+                  </Card.Content>
+                </TouchableRipple>
+              </Card>
+            </View>
+            <ScrollView horizontal={true}>
+              <View style={{ flex: 1, width: screenWidth * 3, paddingRight: 10, paddingLeft: 10 }}>
+                <LineCharte
+                  data={evolutionDesCasVisibel ? evolutionDesCas : []}
+                  dataRetablies={personneRetabliesVisibel ? personneRetablies : []}
+                  dataDeces={personneDecesVisibel ? personneDeces : []}
+                  FormaX='HH'
+                  titel={`Evolution des cas`}
+                  label="temperature"
+                // color="#f1d7b0"
+                // lineColor="#f39911"
+                />
+              </View>
+            </ScrollView>
+            <View style={{ flex: 1, width: screenWidth, paddingRight: 10, paddingLeft: 10 }}>
+              <BarChartScreen data={statistiqueParGouvernorat} />
+            </View>
+          </View>}
       </ScrollView>
     </View>
   );
