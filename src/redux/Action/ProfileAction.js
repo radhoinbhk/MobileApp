@@ -3,6 +3,7 @@ import Axios from "axios"
 import { useSelector } from "react-redux"
 import AsyncStorage from "@react-native-community/async-storage"
 import { SetUserData } from "./HomeAction"
+import API from "../../config/API"
 
 export function UpdateIsLoading(bool) {
     return {
@@ -27,6 +28,7 @@ export function UpdateIsError(bool) {
 
 async function setResData(resData) {
     try {
+        await AsyncStorage.removeItem('userData');
         await AsyncStorage.setItem('userData', JSON.stringify(resData))
     } catch (e) {
         // saving error
@@ -42,18 +44,11 @@ export function SetUpdate(isSignedIn, userToken, body) {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.post("http://192.168.20.126:3000/user/updateUser", body)
+        Axios.post(API.URL + "user/updateUser", body, { timeout: 6000 })
             .then(function (response) {
                 // handle success
                 dispatch(UpdateIsSuccess(true))
-            })
-            .catch(function (error) {
-                // handle error
-                dispatch(UpdateIsError(true))
-                console.warn("error1", error);
-                dispatch(UpdateIsLoading(false))
-            }).then(
-                Axios.post("http://192.168.20.126:3000/user/getUserWithFilter", { "CIN": body.CIN })
+                Axios.post(API.URL + "user/getUserWithFilter", { "CIN": body.CIN }, { timeout: 6000 })
                     .then(function (res) {
                         const userData = {
                             "success": isSignedIn,
@@ -70,10 +65,12 @@ export function SetUpdate(isSignedIn, userToken, body) {
                         console.warn("error2", error);
                         dispatch(UpdateIsLoading(false))
                     })
-            )
+            })
             .catch(function (error) {
+                // handle error
+                dispatch(UpdateIsError(true))
+                console.warn("error1", error);
                 dispatch(UpdateIsLoading(false))
-                console.warn("error3", error);
             })
 
     }

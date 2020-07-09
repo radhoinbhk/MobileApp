@@ -14,6 +14,7 @@ import {
     SET_MY_DEMANDE
 } from './Type'
 import Axios from 'axios'
+import API from '../../config/API';
 
 export function AddDemandeIsError(bool) {
     return {
@@ -112,10 +113,10 @@ export function addStatusUserJoin(body) {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.post("http://192.168.20.126:3000/demande/addStatusUserJoin", body)
+        Axios.post(API.URL + "demande/addStatusUserJoin", body, { timeout: 6000 })
             .then(function (response) {
                 // handle success
-                Axios.post("http://192.168.20.126:3000/demande/getDemandeWithFilter", { "_id": idDemande })
+                Axios.post(API.URL +"demande/getDemandeWithFilter", { "_id": idDemande }, { timeout: 6000 })
                     .then(function (response) {
                         // handle success
                         dispatch(SetDemandeWithUserJoin(response.data[0]))
@@ -138,7 +139,7 @@ export function getAssociation(filter) {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.get(`http://192.168.20.126:3000/user/getAssociation/${filter}`)
+        Axios.get(API.URL +`user/getAssociation/${filter}`, { timeout: 6000 })
             .then(function (response) {
                 // handle success
                 dispatch(SetAssociationList(response.data))
@@ -156,7 +157,7 @@ export function AddUserJoin(body) {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.post("http://192.168.20.126:3000/demande/userJoin", body)
+        Axios.post(API.URL +"demande/userJoin", body, { timeout: 6000 })
             .then(function (response) {
                 // handle success
                 dispatch(UserJoinIsSuccess(true))
@@ -176,7 +177,7 @@ export function GetAllUserJoin(body) {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.post("http://192.168.20.126:3000/demande/getDemandeWithFilter", body)
+        Axios.post(API.URL +"demande/getDemandeWithFilter", body, { timeout: 6000 })
             .then(function (response) {
                 // handle success
                 dispatch(SetDemandeWithUserJoin(response.data[0]))
@@ -196,7 +197,7 @@ export function GetAllDemande() {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.post("http://192.168.20.126:3000/demande/getDemandeWithFilter", {})
+        Axios.post(API.URL +"demande/getDemandeWithFilter", {}, { timeout: 6000 })
             .then(function (response) {
                 // handle success
                 dispatch(SetMyDemande(response.data))
@@ -216,7 +217,7 @@ export function GetAllDemandeWithFilter(body) {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.post("http://192.168.20.126:3000/demande/getDemandeWithFilter", body)
+        Axios.post(API.URL +"demande/getDemandeWithFilter", body, { timeout: 6000 })
             .then(function (response) {
                 // handle success
                 dispatch(DemandeFilter(body))
@@ -239,7 +240,7 @@ export function AddDemande(body) {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.post("http://192.168.20.126:3000/demande/addDemande", body)
+        Axios.post(API.URL +"demande/addDemande", body, { timeout: 6000 })
             .then(function (response) {
                 // handle success
                 dispatch(AddNewDemande(body))
@@ -260,7 +261,7 @@ export function GetAllReponse(filter) {
     return (dispatch) => {
         dispatch(IsLoading(true))
 
-        Axios.post("http://192.168.20.126:3000/reponse/getAllReponseWithFilter", filter)
+        Axios.post(API.URL +"reponse/getAllReponseWithFilter", filter, { timeout: 6000 })
             .then(function (response) {
                 // handle success
                 dispatch(SetAllReponse(response.data))
@@ -284,7 +285,7 @@ export function AddReponse(data) {
     return (dispatch) => {
         dispatch(IsLoading(true))
 
-        Axios.post("http://192.168.20.126:3000/reponse/addReponse", body)
+        Axios.post(API.URL +"reponse/addReponse", body, { timeout: 6000 })
             .then(function (response) {
                 // handle success
                 dispatch(SaveNewReponse(data))

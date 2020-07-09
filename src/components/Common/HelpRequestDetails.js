@@ -159,6 +159,7 @@ export default function HelpRequestDetails(props) {
             }}>
                 <TextInput
                     style={{ width: "87%" }}
+                    theme={{ colors: { primary: "rgba(41, 182, 246, 1)" } }}
                     mode="outlined"
                     label='Écrire une réponse'
                     value={reponse}

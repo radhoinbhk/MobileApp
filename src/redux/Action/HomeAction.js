@@ -3,9 +3,9 @@ import Axios from 'axios'
 import AsyncStorage from '@react-native-community/async-storage';
 import url from '../../config/url';
 import moment from 'moment';
+import API from '../../config/API';
 
 export function SetUserData(isSignedIn, userData, userToken) {
-    console.log("userData", userData);
     return {
         type: SET_TOKEN_USER,
         isSignedIn: isSignedIn,
@@ -110,7 +110,7 @@ async function setResData(resData) {
 export function getStatistiCovid() {
     return (dispatch) => {
         dispatch(IsLoading(true))
-        Axios.get(url.covidApi.CasRetablis)
+        Axios.get(url.covidApi.CasRetablis, { timeout: 6000 })
             .then(function (response) {
                 dispatch(saveCasRetablis(response.data.features[0].attributes.value))
             })
@@ -118,7 +118,7 @@ export function getStatistiCovid() {
                 dispatch(IsLoading(false))
                 console.warn("error", error);
             }).then(
-                Axios.get(url.covidApi.NombreDeces)
+                Axios.get(url.covidApi.NombreDeces, { timeout: 6000 })
                     .then(function (response) {
                         dispatch(saveNombreDeces(response.data.features[0].attributes.value))
                     })
@@ -126,7 +126,7 @@ export function getStatistiCovid() {
                         dispatch(IsLoading(false))
                         console.warn("error", error);
                     }).then(
-                        Axios.get(url.covidApi.CasConfirmes)
+                        Axios.get(url.covidApi.CasConfirmes, { timeout: 6000 })
                             .then(function (response) {
                                 dispatch(saveCasConfirmes(response.data.features[0].attributes.value))
                             })
@@ -134,7 +134,7 @@ export function getStatistiCovid() {
                                 dispatch(IsLoading(false))
                                 console.warn("error", error);
                             }).then(
-                                Axios.get(url.covidApi.NbrConfirmParGouvernorat)
+                                Axios.get(url.covidApi.NbrConfirmParGouvernorat, { timeout: 6000 })
                                     .then(function (response) {
                                         dispatch(statistiqueParGouvernorat(response.data.features))
                                     })
@@ -142,7 +142,7 @@ export function getStatistiCovid() {
                                         dispatch(IsLoading(false))
                                         console.warn("error", error);
                                     }).then(
-                                        Axios.get(url.covidApi.EvolutionDesCas)
+                                        Axios.get(url.covidApi.EvolutionDesCas, { timeout: 6000 })
                                             .then(function (response) {
                                                 const array = [];
                                                 const personneRetablies = [];
@@ -202,7 +202,7 @@ export function Signin(CIN, password) {
             "CIN": CIN,
             "Password": password
         }
-        Axios.post("http://192.168.20.126:3000/user/signin", body)
+        Axios.post(API.URL + "user/signin", body, { timeout: 6000 })
             .then(function (response) {
                 let resData = response.data
                 // handle success
@@ -220,7 +220,6 @@ export function Signin(CIN, password) {
 }
 
 export function Signup(body) {
-    console.log("body",body);
     return (dispatch) => {
         dispatch(SignupIsSuccess(false))
         dispatch(SignupIsError(false))
@@ -228,7 +227,7 @@ export function Signup(body) {
         /**
          * rederige to Home if API return error that is a problem
          */
-        Axios.post("http://192.168.20.126:3000/user/signup", body)
+        Axios.post(API.URL + "user/signup", body, { timeout: 6000 })
             .then(function (response) {
                 // handle success
                 dispatch(SignupIsSuccess(true))
