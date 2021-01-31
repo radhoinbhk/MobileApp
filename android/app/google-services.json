@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "885254773007",
+    "firebase_url": "https://riche-app.firebaseio.com",
+    "project_id": "riche-app",
+    "storage_bucket": "riche-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885254773007:android:8f4dc0da823f4150a0067a",
+        "android_client_info": {
+          "package_name": "com.mobileapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "885254773007-rol1b40k5n68d7c24m69dn2fjpsj6tdg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCS9mNeZXQ8TStX2IWuhMdgqHaPncflSPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "885254773007-rol1b40k5n68d7c24m69dn2fjpsj6tdg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
